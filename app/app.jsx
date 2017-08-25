@@ -8,6 +8,7 @@ var Main = require('Main');
 import Landing from 'Landing';
 import Login from 'Login';
 import Signup from 'Signup';
+import DisplayMap from 'DisplayMap';
 
 
 var actions = require('actions');
@@ -27,6 +28,7 @@ ReactDOM.render(
         <IndexRoute component={Landing}/>
         <Route path="/login" component={Login}/>
         <Route path="/signup" component={Signup} />
+        <Route path="/map" component={DisplayMap}/>
       </Route>
     </Router>
   </Provider>,

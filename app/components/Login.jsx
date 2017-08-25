@@ -2,7 +2,6 @@ var React = require('react');
 var { connect } = require('react-redux');
 var { Link, IndexLink } = require('react-router');
 var axios = require('axios');
-
 var actions = require('actions');
 
 

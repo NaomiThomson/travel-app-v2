@@ -4,10 +4,14 @@ import thunk from 'redux-thunk';
 
 
 import {sessionInfoReducer} from 'reducers';
+import {locationReducer} from 'reducers';
+import {coordsReducer} from 'reducers';
 
 export var configure = (initalState = {}) => {
   var reducer = redux.combineReducers({
-    sessionInfo: sessionInfoReducer
+    sessionInfo: sessionInfoReducer,
+    location: locationReducer,
+    coordinates: coordsReducer
   });
 
   var store = redux.createStore(reducer, initalState, redux.compose(
