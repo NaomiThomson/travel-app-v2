@@ -2,6 +2,8 @@ var React = require('react');
 var { connect } = require('react-redux');
 var { Link, IndexLink } = require('react-router');
 var axios = require('axios');
+var actions = require('actions');
+
 
 
 var Signup = React.createClass({
@@ -26,6 +28,7 @@ var Signup = React.createClass({
           loggedIn: true
         }
         dispatch(actions.setSessionInfo(sessionInfo));
+        console.log(this.props);
         this.props.history.push('/');
       }).catch((e) => {
         console.log(e);
