@@ -36,6 +36,21 @@ export var coordsReducer = (state = coordsDefault, action) => {
     case 'SET_COORDS':
       return action.coordinates;
     default:
-      return state
+      return state;
   }
-}
+};
+
+var tripDetailsDefault = {
+  destination: undefined,
+  startdate: undefined,
+  enddate: undefined
+};
+
+export var tripDetailsReducer = (state = tripDetailsDefault, action) => {
+  switch(action.type) {
+    case 'SET_TRIP_DETAILS':
+      return action.tripDetails;
+    default: 
+      return state;
+  }
+}; 

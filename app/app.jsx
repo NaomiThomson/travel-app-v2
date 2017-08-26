@@ -9,6 +9,7 @@ import Landing from 'Landing';
 import Login from 'Login';
 import Signup from 'Signup';
 import DisplayMap from 'DisplayMap';
+import CreateItinerary from 'CreateItinerary';
 
 
 var actions = require('actions');
@@ -29,6 +30,7 @@ ReactDOM.render(
         <Route path="/login" component={Login}/>
         <Route path="/signup" component={Signup} />
         <Route path="/map" component={DisplayMap}/>
+        <Route path="/create" component={CreateItinerary}/>
       </Route>
     </Router>
   </Provider>,

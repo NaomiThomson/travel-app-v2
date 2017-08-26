@@ -17,4 +17,11 @@ export var setCoords = (coordinates) => {
     type: "SET_COORDS",
     coordinates
   }
-}
+};
+
+export var setTripDetails = (tripDetails) => {
+  return {
+    type: "SET_TRIP_DETAILS",
+    tripDetails
+  }
+};
