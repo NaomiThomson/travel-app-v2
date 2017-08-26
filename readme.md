@@ -1,1 +1,1 @@
-# React Version of HerbalRun Eccommerce platform
+# React/Redux Travel Itinerary App
