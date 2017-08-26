@@ -38,7 +38,7 @@ var Navigation = React.createClass({
         <IndexLink to="/" className="nav-link"> Home </IndexLink>
         {/*<Link to="/login" className="nav-link"> Login </Link>*/}
         <p className="nav-link" onClick={this.handleClick}>{this.renderLoginLogout()}</p>
-        <Link to="/map" className="map-link">Map</Link>
+        <Link to="/create" className="create-link">Create</Link>
       </div>
     );
   }

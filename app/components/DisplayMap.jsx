@@ -7,7 +7,9 @@ var actions = require('actions');
 var DisplayMap = React.createClass({
   renderMap: function () {
 
-    if (this.props.location.city) {
+    if (this.props.tripDetails.destination) {
+
+      this.getCoordinates();
 
       var lat = this.props.coordinates.lat;
       var lng = this.props.coordinates.lng;
@@ -27,11 +29,11 @@ var DisplayMap = React.createClass({
       )
     }
   },
-  getCoordinates: function (userLocation) {
+  getCoordinates: function () {
     let { dispatch } = this.props;
-    let city = userLocation.city;
+    let destination = this.props.tripDetails.destination;
 
-    var query = `https://maps.googleapis.com/maps/api/geocode/json?address=${city}&key=AIzaSyAr02UkNoe3UCCVrkyMNFWKA_PtseA-9gc`;
+    var query = `https://maps.googleapis.com/maps/api/geocode/json?address=${destination}&key=AIzaSyAr02UkNoe3UCCVrkyMNFWKA_PtseA-9gc`;
     axios.get(query)
       .then((res) => {
         dispatch(actions.setCoords(res.data.results[0].geometry.location));
@@ -40,24 +42,9 @@ var DisplayMap = React.createClass({
         console.log(err)
       })
   },
-  onFormSubmit: function (e) {
-    e.preventDefault();
-
-    let {dispatch} = this.props;
-    
-    let location = {city: this.refs.location.value};
-
-    dispatch(actions.setLocation(location));
-    this.getCoordinates(location);
-  },
   render: function () {
     return (
       <div>
-        <form onSubmit={this.onFormSubmit}>
-          <input ref="location" type="text" />
-          <button classLocation="btn" type="submit"> Enter </button>
-        </form>
-
         {this.renderMap()}
       </div>
     )
