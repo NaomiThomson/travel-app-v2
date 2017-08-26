@@ -12,7 +12,7 @@ var DisplayMap = React.createClass({
       var lat = this.props.coordinates.lat;
       var lng = this.props.coordinates.lng;
 
-      var url = `https://maps.googleapis.com/maps/api/staticmap?center=${lat},${lng}&zoom=8&size=400x400&key=AIzaSyAHArhvGxJpWsb2S-0zCXb0bIPt4Mv_6lc`
+      var url = `https://maps.googleapis.com/maps/api/staticmap?center=${lat},${lng}&zoom=12&size=400x400&key=AIzaSyAHArhvGxJpWsb2S-0zCXb0bIPt4Mv_6lc`
 
       return (
         <div>
