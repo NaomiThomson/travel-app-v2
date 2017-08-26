@@ -8,7 +8,7 @@ var DisplayMap = React.createClass({
   renderMap: function () {
 
     if (this.props.location.city) {
-      console.log('TRYING!');
+
       var lat = this.props.coordinates.lat;
       var lng = this.props.coordinates.lng;
 
