@@ -19,7 +19,6 @@ var Login = React.createClass({
 
     axios.post('https://powerful-cliffs-81990.herokuapp.com/users/login', payload)
       .then((res) => {
-        console.log(res);
         let sessionInfo = {
           username: res.data.username,
           token: res.headers['x-auth'],

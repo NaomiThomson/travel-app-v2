@@ -4,10 +4,12 @@ var { Link, IndexLink } = require('react-router');
 var axios = require('axios');
 var actions = require('actions');
 
+// CODE SLOWING DOWN A LOT FROM THIS COMPONENT!!!! 
+
 var DisplayMap = React.createClass({
   renderMap: function () {
 
-    if (this.props.tripDetails.location) {
+    if (this.props.tripDetails.location && !this.props.coordinates.lat) {
 
       this.getCoordinates();
 
@@ -43,6 +45,7 @@ var DisplayMap = React.createClass({
       })
   },
   render: function () {
+
     return (
       <div>
         {this.renderMap()}

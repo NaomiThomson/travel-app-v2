@@ -8,7 +8,7 @@ var CreateItinerary = React.createClass({
   onClick: function (e) {
     e.preventDefault();
 
-    let { dispatch } = this.props;
+    let { dispatch, sessionInfo } = this.props;
 
     let payload =
       {
@@ -17,21 +17,25 @@ var CreateItinerary = React.createClass({
         location: this.refs.location.value
       };
 
-    axios.post('https://powerful-cliffs-81990.herokuapp.com/itinerary', payload)
-    .then((res) => {
-      let tripDetails = {
-        startDate: res.data.startDate,
-        endDate: res.data.endDate,
-        location: res.data.location,
-        id: res.data._id
-      }
-      dispatch(actions.setTripDetails(payload));
-      this.props.history.push('/map');
-    })
-    .catch((e) => {
-      console.log(e)
-    });
-    
+    let headerConfig = {
+      headers: {'x-auth': sessionInfo.token}
+    };
+
+    axios.post('https://powerful-cliffs-81990.herokuapp.com/itinerary', payload, headerConfig)
+      .then((res) => {
+        let tripDetails = {
+          startDate: res.data.startDate,
+          endDate: res.data.endDate,
+          location: res.data.location,
+          id: res.data._id
+        }
+        dispatch(actions.setTripDetails(payload));
+        this.props.history.push('/map');
+      })
+      .catch((e) => {
+        console.log(e)
+      });
+
   },
   render: function () {
     return (

@@ -28,7 +28,6 @@ var Navigation = React.createClass({
       dispatch(actions.setSessionInfo(sessionDefault));
       hashHistory.push('/');
     } else {
-      console.log(this.props);
       hashHistory.push('/login');
     }
   },
