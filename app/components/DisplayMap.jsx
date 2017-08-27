@@ -7,7 +7,7 @@ var actions = require('actions');
 var DisplayMap = React.createClass({
   renderMap: function () {
 
-    if (this.props.tripDetails.destination) {
+    if (this.props.tripDetails.location) {
 
       this.getCoordinates();
 
@@ -31,9 +31,9 @@ var DisplayMap = React.createClass({
   },
   getCoordinates: function () {
     let { dispatch } = this.props;
-    let destination = this.props.tripDetails.destination;
+    let location = this.props.tripDetails.location;
 
-    var query = `https://maps.googleapis.com/maps/api/geocode/json?address=${destination}&key=AIzaSyAr02UkNoe3UCCVrkyMNFWKA_PtseA-9gc`;
+    var query = `https://maps.googleapis.com/maps/api/geocode/json?address=${location}&key=AIzaSyAr02UkNoe3UCCVrkyMNFWKA_PtseA-9gc`;
     axios.get(query)
       .then((res) => {
         dispatch(actions.setCoords(res.data.results[0].geometry.location));

@@ -10,24 +10,35 @@ var CreateItinerary = React.createClass({
 
     let { dispatch } = this.props;
 
-    let tripDetails =
+    let payload =
       {
-        destination: this.refs.destination.value,
-        startdate: this.refs.startdate.value,
-        enddate: this.refs.enddate.value
+        startDate: this.refs.startdate.value,
+        endDate: this.refs.enddate.value,
+        location: this.refs.location.value
       };
 
-      console.log(tripDetails);
-
-    dispatch(actions.setTripDetails(tripDetails));
-    this.props.history.push('/map');
+    axios.post('https://powerful-cliffs-81990.herokuapp.com/itinerary', payload)
+    .then((res) => {
+      let tripDetails = {
+        startDate: res.data.startDate,
+        endDate: res.data.endDate,
+        location: res.data.location,
+        id: res.data._id
+      }
+      dispatch(actions.setTripDetails(payload));
+      this.props.history.push('/map');
+    })
+    .catch((e) => {
+      console.log(e)
+    });
+    
   },
   render: function () {
     return (
       <div>
-        Destination
+        Location
         <form>
-          <input ref="destination" type="text" />
+          <input ref="location" type="text" />
         </form>
 
         Start Date

@@ -14,19 +14,6 @@ export var sessionInfoReducer = (state = sessionDefault, action) => {
   };
 };
 
-var locationDefault = {
-  city: 'Irvine,CA'
-};
-
-export var locationReducer = (state = locationDefault, action) => {
-  switch (action.type) {
-    case 'SET_LOCATION':
-      return action.location;
-    default:
-      return state;
-  };
-};
-
 var coordsDefault = {
   coordinates: undefined
 }; 
@@ -41,9 +28,10 @@ export var coordsReducer = (state = coordsDefault, action) => {
 };
 
 var tripDetailsDefault = {
-  destination: undefined,
-  startdate: undefined,
-  enddate: undefined
+  location: undefined,
+  startDate: undefined,
+  endDate: undefined,
+  id: undefined
 };
 
 export var tripDetailsReducer = (state = tripDetailsDefault, action) => {
