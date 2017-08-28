@@ -15,7 +15,8 @@ export var sessionInfoReducer = (state = sessionDefault, action) => {
 };
 
 var coordsDefault = {
-  coordinates: undefined
+  lat: undefined, 
+  lng: undefined
 }; 
 
 export var coordsReducer = (state = coordsDefault, action) => {
@@ -42,3 +43,16 @@ export var tripDetailsReducer = (state = tripDetailsDefault, action) => {
       return state;
   }
 }; 
+
+var mapURLDefault = {
+  url: undefined
+};
+
+export var mapURLReducer = (state = mapURLDefault, action) => {
+  switch (action.type) {
+    case 'SET_MAP_URL':
+      return action.mapURL;
+    default: 
+      return state
+  }
+}

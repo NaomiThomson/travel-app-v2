@@ -6,12 +6,14 @@ import thunk from 'redux-thunk';
 import {sessionInfoReducer} from 'reducers';
 import {coordsReducer} from 'reducers';
 import {tripDetailsReducer} from 'reducers';
+import {mapURLReducer} from 'reducers';
 
 export var configure = (initalState = {}) => {
   var reducer = redux.combineReducers({
     sessionInfo: sessionInfoReducer,
     coordinates: coordsReducer,
-    tripDetails: tripDetailsReducer
+    tripDetails: tripDetailsReducer,
+    mapURL: mapURLReducer
   });
 
   var store = redux.createStore(reducer, initalState, redux.compose(

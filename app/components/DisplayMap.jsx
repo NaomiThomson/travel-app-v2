@@ -7,26 +7,31 @@ var actions = require('actions');
 // CODE SLOWING DOWN A LOT FROM THIS COMPONENT!!!! 
 
 var DisplayMap = React.createClass({
+  componentWillMount: function () {
+    let { dispatch } = this.props;
+
+    this.getCoordinates();
+
+    var lat = this.props.coordinates.lat;
+    var lng = this.props.coordinates.lng;
+
+
+    var url = `https://maps.googleapis.com/maps/api/staticmap?center=${lat},${lng}&zoom=12&size=400x400&key=AIzaSyAHArhvGxJpWsb2S-0zCXb0bIPt4Mv_6lc`
+
+    dispatch(actions.setMapURL(url));
+
+  },
   renderMap: function () {
-
-    if (this.props.tripDetails.location && !this.props.coordinates.lat) {
-
-      this.getCoordinates();
-
-      var lat = this.props.coordinates.lat;
-      var lng = this.props.coordinates.lng;
-
-      var url = `https://maps.googleapis.com/maps/api/staticmap?center=${lat},${lng}&zoom=12&size=400x400&key=AIzaSyAHArhvGxJpWsb2S-0zCXb0bIPt4Mv_6lc`
-
+    if (this.props.mapURL) {
       return (
         <div>
-          <img src={url} />
+          <img src={this.props.mapURL} />
         </div>
       )
     } else {
       return (
         <div>
-          Enter a location to bring up its map!
+          Loading...
         </div>
       )
     }
@@ -35,14 +40,17 @@ var DisplayMap = React.createClass({
     let { dispatch } = this.props;
     let location = this.props.tripDetails.location;
 
-    var query = `https://maps.googleapis.com/maps/api/geocode/json?address=${location}&key=AIzaSyAr02UkNoe3UCCVrkyMNFWKA_PtseA-9gc`;
-    axios.get(query)
-      .then((res) => {
-        dispatch(actions.setCoords(res.data.results[0].geometry.location));
-      })
-      .catch((err) => {
-        console.log(err)
-      })
+    if (location) {
+      var query = `https://maps.googleapis.com/maps/api/geocode/json?address=${location}&key=AIzaSyAr02UkNoe3UCCVrkyMNFWKA_PtseA-9gc`;
+      axios.get(query)
+        .then((res) => {
+          console.log(res.data.results[0].geometry.location)
+          dispatch(actions.setCoords(res.data.results[0].geometry.location));
+        })
+        .catch((err) => {
+          console.log(err)
+        })
+    }
   },
   render: function () {
 
@@ -51,6 +59,8 @@ var DisplayMap = React.createClass({
         {this.renderMap()}
       </div>
     )
+
+
   }
 });
 

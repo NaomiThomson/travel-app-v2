@@ -18,3 +18,10 @@ export var setTripDetails = (tripDetails) => {
     tripDetails
   }
 };
+
+export var setMapURL = (mapURL) => {
+  return {
+    type: "SET_MAP_URL",
+    mapURL
+  }
+};
