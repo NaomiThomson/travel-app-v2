@@ -3,17 +3,28 @@ var { connect } = require('react-redux');
 var { Link, IndexLink } = require('react-router');
 var axios = require('axios');
 var actions = require('actions');
+import 'react-date-picker/index.css'
+import moment from 'moment'
+import { DateField, Calendar } from 'react-date-picker'
+
+let dates = [];
+const onChange = (dateString, { dateMoment, timestamp }) => {
+  dates.push(dateString);
+};
+
 
 var CreateItinerary = React.createClass({
   onClick: function (e) {
     e.preventDefault();
 
+    console.log(dates[0], dates[1]);
+
     let { dispatch, sessionInfo } = this.props;
 
     let payload =
       {
-        startDate: this.refs.startdate.value,
-        endDate: this.refs.enddate.value,
+        startDate: dates[0],
+        endDate: dates[1],
         location: this.refs.location.value
       };
 
@@ -29,7 +40,7 @@ var CreateItinerary = React.createClass({
           location: res.data.location,
           id: res.data._id
         }
-        dispatch(actions.setTripDetails(payload));
+        dispatch(actions.setTripDetails(tripDetails));
         this.props.history.push('/map');
       })
       .catch((e) => {
@@ -38,6 +49,8 @@ var CreateItinerary = React.createClass({
 
   },
   render: function () {
+    let date = '';
+
     return (
       <div>
         Location
@@ -46,14 +59,20 @@ var CreateItinerary = React.createClass({
         </form>
 
         Start Date
-        <form>
-          <input ref="startdate" type="text" />
-        </form>
+        <Calendar
+          dateFormat="YYYY-MM-DD"
+          date={date}
+          onChange={onChange}
+        />
+        <br />
 
         End Date
-        <form>
-          <input ref="enddate" type="text" />
-        </form>
+        <Calendar
+          dateFormat="YYYY-MM-DD"
+          date={date}
+          onChange={onChange}
+        />
+        <br />
 
         <button onClick={this.onClick} classLocation="btn" type="submit"> Enter </button>
 

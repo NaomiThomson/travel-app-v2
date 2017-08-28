@@ -13,7 +13,9 @@
     "animate.css": "^3.5.2",
     "axios": "^0.16.2",
     "express": "^4.15.3",
+    "moment": "^2.18.1",
     "react": "^0.14.7",
+    "react-date-picker": "^5.3.28",
     "react-dom": "^0.14.7",
     "react-loading": "^0.1.4",
     "react-router": "^2.0.0"
