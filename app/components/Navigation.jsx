@@ -1,19 +1,26 @@
 var React = require('react');
-var { Link, IndexLink, hashHistory} = require('react-router');
+var { Link, IndexLink, hashHistory } = require('react-router');
 var { connect } = require('react-redux');
 var actions = require('actions');
 
 
 var Navigation = React.createClass({
   renderCreate: function () {
-    let {sessionInfo} = this.props;
+    let { sessionInfo } = this.props;
 
     if (sessionInfo.loggedIn) {
-      return "Create"
-    } 
+      return <Link to="/create">Create</Link>
+    }
+  },
+  renderMyItineraries: function () {
+    let { sessionInfo } = this.props;
+
+    if (sessionInfo.loggedIn) {
+      return <Link to="/itineraries">My Itineraries</Link>
+    }
   },
   renderLoginLogout: function () {
-    let {sessionInfo} = this.props;
+    let { sessionInfo } = this.props;
 
     if (sessionInfo.loggedIn) {
       return "Logout"
@@ -21,12 +28,9 @@ var Navigation = React.createClass({
       return "Login"
     }
   },
-  handleCreateClick: function () {
-    hashHistory.push('/create')
-  },
   handleLoginLogoutClick: function () {
     let { sessionInfo } = this.props;
-    let {dispatch} = this.props;
+    let { dispatch } = this.props;
 
     if (sessionInfo.loggedIn) {
       var sessionDefault = {
@@ -48,7 +52,9 @@ var Navigation = React.createClass({
 
         <p className="nav-link" onClick={this.handleLoginLogoutClick}>{this.renderLoginLogout()}</p>
 
-        <p className="nav-link" onClick={this.handleCreateClick}>{this.renderCreate()}</p>
+        <p className="nav-link">{this.renderCreate()}</p>
+
+        <p className="nav-link">{this.renderMyItineraries()}</p>
       </div>
     );
   }

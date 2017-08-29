@@ -19,7 +19,7 @@ var store = require('configureStore').configure();
 
 store.subscribe(() => {
   var state = store.getState();
-  console.log(state);
+  // console.log(state);
 });
 
 require('style!css!sass!applicationStyles');
