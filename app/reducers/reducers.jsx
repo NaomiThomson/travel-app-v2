@@ -68,4 +68,17 @@ export var myTripsListReducer = (state = myTripsListDefault, action) => {
     default: 
       return state
   }
+};
+
+var ExampleDefault = {
+  example: undefined
+};
+
+export var ExampleReducer = (state = ExampleDefault, action) => {
+  switch (action.type) {
+    case 'SET_EXAMPLE':
+      return action.example;
+    default: 
+      return state
+  }
 }

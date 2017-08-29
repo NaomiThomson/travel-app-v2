@@ -7,24 +7,18 @@ import 'react-date-picker/index.css'
 import moment from 'moment'
 import { DateField, Calendar } from 'react-date-picker'
 
-let dates = [];
-const onChange = (dateString, { dateMoment, timestamp }) => {
-  dates.push(dateString);
-};
-
 
 var CreateItinerary = React.createClass({
   onClick: function (e) {
     e.preventDefault();
 
-    console.log(dates[0], dates[1]);
 
-    let { dispatch, sessionInfo } = this.props;
+    let { dispatch, sessionInfo, tripDetails } = this.props;
 
     let payload =
       {
-        startDate: dates[0],
-        endDate: dates[1],
+        startDate: tripDetails.startDate,
+        endDate: tripDetails.endDate,
         location: this.refs.location.value
       };
 
@@ -58,21 +52,7 @@ var CreateItinerary = React.createClass({
           <input ref="location" type="text" />
         </form>
 
-        Start Date
-        <Calendar
-          dateFormat="YYYY-MM-DD"
-          date={date}
-          onChange={onChange}
-        />
-        <br />
-
-        End Date
-        <Calendar
-          dateFormat="YYYY-MM-DD"
-          date={date}
-          onChange={onChange}
-        />
-        <br />
+        
 
         <button onClick={this.onClick} classLocation="btn" type="submit"> Enter </button>
 

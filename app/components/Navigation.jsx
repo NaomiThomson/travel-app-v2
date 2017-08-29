@@ -5,6 +5,13 @@ var actions = require('actions');
 
 
 var Navigation = React.createClass({
+  renderCreate: function () {
+    let {sessionInfo} = this.props;
+
+    if (sessionInfo.loggedIn) {
+      return "Create"
+    } 
+  },
   renderLoginLogout: function () {
     let {sessionInfo} = this.props;
 
@@ -14,7 +21,11 @@ var Navigation = React.createClass({
       return "Login"
     }
   },
-  handleClick: function () {
+  handleCreateClick: function () {
+    hashHistory.push('/create')
+  },
+  handleLoginLogoutClick: function () {
+    console.log('clicking login');
     let { sessionInfo } = this.props;
     let {dispatch} = this.props;
 
@@ -35,9 +46,10 @@ var Navigation = React.createClass({
     return (
       <div>
         <IndexLink to="/" className="nav-link"> Home </IndexLink>
-        {/*<Link to="/login" className="nav-link"> Login </Link>*/}
-        <p className="nav-link" onClick={this.handleClick}>{this.renderLoginLogout()}</p>
-        <Link to="/create" className="create-link">Create</Link>
+
+        <p className="nav-link" onClick={this.handleLoginLogoutClick}>{this.renderLoginLogout()}</p>
+
+        <p className="nav-link" onClick={this.handleCreateClick}>{this.renderCreate()}</p>
       </div>
     );
   }

@@ -32,3 +32,11 @@ export var setMyTripsList = (myTripsList) => {
     myTripsList
   }
 };
+
+
+export var setExample = (example) => {
+  return {
+    type: "SET_EXAMPLE",
+    example
+  }
+};
