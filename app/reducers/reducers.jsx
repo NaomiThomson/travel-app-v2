@@ -55,4 +55,17 @@ export var mapURLReducer = (state = mapURLDefault, action) => {
     default: 
       return state
   }
+};
+
+var myTripsListDefault = {
+  list: undefined
+} 
+
+export var myTripsListReducer = (state = myTripsListDefault, action) => {
+  switch (action.type) {
+    case 'SET_MY_TRIPS_LIST':
+      return action.myTripsList;
+    default: 
+      return state
+  }
 }

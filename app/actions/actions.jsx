@@ -25,3 +25,10 @@ export var setMapURL = (mapURL) => {
     mapURL
   }
 };
+
+export var setMyTripsList = (myTripsList) => {
+  return {
+    type: "SET_MY_TRIPS_LIST",
+    myTripsList
+  }
+};

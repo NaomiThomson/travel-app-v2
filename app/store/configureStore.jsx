@@ -7,13 +7,15 @@ import {sessionInfoReducer} from 'reducers';
 import {coordsReducer} from 'reducers';
 import {tripDetailsReducer} from 'reducers';
 import {mapURLReducer} from 'reducers';
+import {myTripsListReducer} from 'reducers';
 
 export var configure = (initalState = {}) => {
   var reducer = redux.combineReducers({
     sessionInfo: sessionInfoReducer,
     coordinates: coordsReducer,
     tripDetails: tripDetailsReducer,
-    mapURL: mapURLReducer
+    mapURL: mapURLReducer,
+    myTripsList: myTripsListReducer
   });
 
   var store = redux.createStore(reducer, initalState, redux.compose(
