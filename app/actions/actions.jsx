@@ -26,17 +26,9 @@ export var setMapURL = (mapURL) => {
   }
 };
 
-export var setMyTripsList = (myTripsList) => {
+export var setItineraryList = (itineraryList) => {
   return {
-    type: "SET_MY_TRIPS_LIST",
-    myTripsList
-  }
-};
-
-
-export var setExample = (example) => {
-  return {
-    type: "SET_EXAMPLE",
-    example
+    type: "SET_ITINERARY_LIST",
+    itineraryList
   }
 };

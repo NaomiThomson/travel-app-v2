@@ -10,7 +10,8 @@ import Login from 'Login';
 import Signup from 'Signup';
 import DisplayMap from 'DisplayMap';
 import CreateItinerary from 'CreateItinerary';
-import MyTripsList from 'MyTripsList';
+import ItineraryList from 'ItineraryList';
+import Itinerary from 'Itinerary';
 
 
 var actions = require('actions');
@@ -32,7 +33,8 @@ ReactDOM.render(
         <Route path="/signup" component={Signup} />
         <Route path="/map" component={DisplayMap}/>
         <Route path="/create" component={CreateItinerary}/>
-        <Route path="/mytrips" component={MyTripsList}/>
+        <Route path="/itineraries" component={ItineraryList}/>
+        <Route path="/itinerary/:id" component={Itinerary}/>
       </Route>
     </Router>
   </Provider>,

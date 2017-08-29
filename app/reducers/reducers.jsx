@@ -57,28 +57,15 @@ export var mapURLReducer = (state = mapURLDefault, action) => {
   }
 };
 
-var myTripsListDefault = {
+var itineraryListDefault = {
   list: undefined
 } 
 
-export var myTripsListReducer = (state = myTripsListDefault, action) => {
+export var itineraryListReducer = (state = itineraryListDefault, action) => {
   switch (action.type) {
-    case 'SET_MY_TRIPS_LIST':
-      return action.myTripsList;
+    case 'SET_ITINERARY_LIST':
+      return action.itineraryList;
     default: 
       return state
   }
 };
-
-var ExampleDefault = {
-  example: undefined
-};
-
-export var ExampleReducer = (state = ExampleDefault, action) => {
-  switch (action.type) {
-    case 'SET_EXAMPLE':
-      return action.example;
-    default: 
-      return state
-  }
-}
