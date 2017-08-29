@@ -15,10 +15,11 @@ var CreateItinerary = React.createClass({
 
     let { dispatch, sessionInfo, tripDetails } = this.props;
 
+    // temporarily hard coding dates
     let payload =
       {
-        startDate: tripDetails.startDate,
-        endDate: tripDetails.endDate,
+        startDate: '2017-09-23',
+        endDate: '2017-09-26',
         location: this.refs.location.value
       };
 

@@ -38,11 +38,6 @@ var ItineraryList = React.createClass({
         )
       })
 
-      // return (
-      //   <div>
-      //     Somewhat working...
-      //   </div>
-      // )
     } else {
       return (
         <div>
