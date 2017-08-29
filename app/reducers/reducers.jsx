@@ -59,12 +59,29 @@ export var mapURLReducer = (state = mapURLDefault, action) => {
 
 var itineraryListDefault = {
   list: undefined
-} 
+};
 
 export var itineraryListReducer = (state = itineraryListDefault, action) => {
   switch (action.type) {
     case 'SET_ITINERARY_LIST':
       return action.itineraryList;
+    default: 
+      return state
+  }
+};
+
+var currentItineraryDefault = {
+  _id: undefined,
+  _creator: undefined,
+  endDate: undefined,
+  startDate: undefined,
+  location: undefined
+};
+
+export var currentItineraryReducer = (state = currentItineraryDefault, action) => {
+  switch (action.type) {
+    case 'SET_CURRENT_ITINERARY':
+      return action.currentItinerary;
     default: 
       return state
   }

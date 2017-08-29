@@ -5,11 +5,16 @@ var axios = require('axios');
 var actions = require('actions');
 
 var Itinerary = React.createClass({
+
   render: function () {
+    let { currentItinerary } = this.props;
+    
     return (
       <div>
-        Hey
-    </div>
+        {currentItinerary.location}
+        {currentItinerary.startDate}
+        {currentItinerary.endDate}
+      </div>
     )
   }
 });

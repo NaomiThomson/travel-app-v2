@@ -31,7 +31,6 @@ var ItineraryList = React.createClass({
 
     if (itineraryList.length > 0) {
       return itineraryList.map(function (itinerary) {
-        console.log(itinerary);
         return (
           <div className="col-md-12 col-lg-4">
             <ItineraryLink {...itinerary} />

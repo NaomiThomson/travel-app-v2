@@ -25,7 +25,6 @@ var Navigation = React.createClass({
     hashHistory.push('/create')
   },
   handleLoginLogoutClick: function () {
-    console.log('clicking login');
     let { sessionInfo } = this.props;
     let {dispatch} = this.props;
 

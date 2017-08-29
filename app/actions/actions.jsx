@@ -32,3 +32,10 @@ export var setItineraryList = (itineraryList) => {
     itineraryList
   }
 };
+
+export var setCurrentItinerary = (currentItinerary) => {
+  return {
+    type: "SET_CURRENT_ITINERARY",
+    currentItinerary
+  }
+};
