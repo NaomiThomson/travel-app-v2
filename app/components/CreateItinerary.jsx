@@ -36,7 +36,8 @@ var CreateItinerary = React.createClass({
           id: res.data._id
         }
         dispatch(actions.setTripDetails(tripDetails));
-        this.props.history.push('/map');
+        // this.props.history.push('/map');
+        <Link to="/map">Map</Link>
       })
       .catch((e) => {
         console.log(e)

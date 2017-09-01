@@ -41,7 +41,7 @@ var ItineraryList = React.createClass({
     } else {
       return (
         <div>
-          Loading...
+          Please log in first!
         </div>
       )
     }

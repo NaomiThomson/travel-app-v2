@@ -3,6 +3,7 @@ var { connect } = require('react-redux');
 var { Link, IndexLink } = require('react-router');
 var axios = require('axios');
 var actions = require('actions');
+var Map = require('./GoogleMaps/Map');
 
 // 
 var DisplayMap = React.createClass({
@@ -24,19 +25,22 @@ var DisplayMap = React.createClass({
     dispatch(actions.setMapURL(url));
   },
   renderMap: function () {
-    if (this.props.mapURL) {
+    // if (this.props.mapURL) {
+      let {coordinates} = this.props;
+
       return (
-        <div>
-          <img src={this.props.mapURL} />
-        </div>
+        // <div>
+        //   <img src={this.props.mapURL} />
+        // </div>
+        <Map lat={coordinates.lat} lng={coordinates.lng}/>
       )
-    } else {
-      return (
-        <div>
-          Loading...
-        </div>
-      )
-    }
+    // } else {
+    //   return (
+    //     <div>
+    //       Please log in first!
+    //     </div>
+    //   )
+    // }
   },
   getCoordinates: function () {
     let { dispatch } = this.props;
