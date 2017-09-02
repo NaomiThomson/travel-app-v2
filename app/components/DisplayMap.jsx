@@ -1,43 +1,31 @@
-var React = require('react');
+import React, { Component } from 'react';
+import GoogleMapReact from 'google-map-react';
 var { connect } = require('react-redux');
 var { Link, IndexLink } = require('react-router');
 var axios = require('axios');
 var actions = require('actions');
-// var Map = require('./GoogleMaps/Map');
 
-// 
-var DisplayMap = React.createClass({
-  componentWillMount: function () {
+const AnyReactComponent = ({ text }) => <div>{text}</div>;
 
-    this.getCoordinates();
-  },
-  getCoordinates: function () {
-    let { dispatch } = this.props;
-    let location = this.props.tripDetails.location;
+class DisplayMap extends Component {
+  constructor(props) {
+    super(props);
+  }
 
-    if (location) {
-      var query = `https://maps.googleapis.com/maps/api/geocode/json?address=${location}&key=AIzaSyAr02UkNoe3UCCVrkyMNFWKA_PtseA-9gc`;
-      axios.get(query)
-        .then((res) => {
-          dispatch(actions.setCoords(res.data.results[0].geometry.location));
-          this.setMapURL();
-        })
-        .catch((err) => {
-          console.log(err)
-        })
-    }
-  },
-  render: function () {
+  render() {
 
     return (
-      <div>
-        {this.renderMap()}
-      </div>
-    )
+      <GoogleMapReact
+        center={{ lat: this.props.coordinates.lat, lng: this.props.coordinates.lng }}
+        zoom={8}
+        style={{ height: '400px' }}
+      >
 
-
+      </GoogleMapReact>
+    );
   }
-});
+
+}
 
 export default connect(
   (state) => {

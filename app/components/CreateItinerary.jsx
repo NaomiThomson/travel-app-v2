@@ -37,7 +37,7 @@ var CreateItinerary = React.createClass({
         }
         dispatch(actions.setTripDetails(tripDetails));
         this.getCoordinates(); 
-        this.props.history.push('/newmap');
+        this.props.history.push('/map');
       })
       .catch((e) => {
         console.log(e)

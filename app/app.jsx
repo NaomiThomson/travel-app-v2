@@ -12,7 +12,6 @@ import DisplayMap from 'DisplayMap';
 import CreateItinerary from 'CreateItinerary';
 import ItineraryList from 'ItineraryList';
 import Itinerary from 'Itinerary';
-import Map3 from 'MapsTesting/Map3';
 
 
 var actions = require('actions');
@@ -36,7 +35,6 @@ ReactDOM.render(
         <Route path="/create" component={CreateItinerary}/>
         <Route path="/itineraries" component={ItineraryList}/>
         <Route path="/itinerary/:id" component={Itinerary}/>
-        <Route path="/newmap" component={Map3}/>
       </Route>
     </Router>
   </Provider>,
