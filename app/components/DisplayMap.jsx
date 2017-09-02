@@ -3,44 +3,13 @@ var { connect } = require('react-redux');
 var { Link, IndexLink } = require('react-router');
 var axios = require('axios');
 var actions = require('actions');
-var Map = require('./GoogleMaps/Map');
+// var Map = require('./GoogleMaps/Map');
 
 // 
 var DisplayMap = React.createClass({
   componentWillMount: function () {
 
     this.getCoordinates();
-  },
-  setMapURL: function() {
-    // let {coordinates} = this.props;
-
-    let {dispatch} = this.props;
-
-    var lat = this.props.coordinates.lat;
-    var lng = this.props.coordinates.lng;
-
-
-    var url = `https://maps.googleapis.com/maps/api/staticmap?center=${lat},${lng}&zoom=12&size=400x400&key=AIzaSyAHArhvGxJpWsb2S-0zCXb0bIPt4Mv_6lc`;
-
-    dispatch(actions.setMapURL(url));
-  },
-  renderMap: function () {
-    // if (this.props.mapURL) {
-      let {coordinates} = this.props;
-
-      return (
-        // <div>
-        //   <img src={this.props.mapURL} />
-        // </div>
-        <Map lat={coordinates.lat} lng={coordinates.lng}/>
-      )
-    // } else {
-    //   return (
-    //     <div>
-    //       Please log in first!
-    //     </div>
-    //   )
-    // }
   },
   getCoordinates: function () {
     let { dispatch } = this.props;

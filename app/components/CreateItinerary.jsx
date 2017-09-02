@@ -36,13 +36,28 @@ var CreateItinerary = React.createClass({
           id: res.data._id
         }
         dispatch(actions.setTripDetails(tripDetails));
-        // this.props.history.push('/map');
-        <Link to="/map">Map</Link>
+        this.getCoordinates(); 
+        this.props.history.push('/newmap');
       })
       .catch((e) => {
         console.log(e)
       });
 
+  },
+  getCoordinates: function () {
+    let { dispatch } = this.props;
+    let location = this.props.tripDetails.location;
+
+    if (location) {
+      var query = `https://maps.googleapis.com/maps/api/geocode/json?address=${location}&key=AIzaSyAr02UkNoe3UCCVrkyMNFWKA_PtseA-9gc`;
+      axios.get(query)
+        .then((res) => {
+          dispatch(actions.setCoords(res.data.results[0].geometry.location));
+        })
+        .catch((err) => {
+          console.log(err)
+        })
+    }
   },
   render: function () {
     let date = '';
