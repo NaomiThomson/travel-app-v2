@@ -12,14 +12,14 @@ import DisplayMap from 'DisplayMap';
 import CreateItinerary from 'CreateItinerary';
 import ItineraryList from 'ItineraryList';
 import Itinerary from 'Itinerary';
-
+// import EditItinerary from 'EditItinerary';
+import InitializeFromStateForm from 'InitializeFromStateForm';
 
 var actions = require('actions');
 var store = require('configureStore').configure();
 
 store.subscribe(() => {
   var state = store.getState();
-  // console.log(state);
 });
 
 require('style!css!sass!applicationStyles');
@@ -33,8 +33,10 @@ ReactDOM.render(
         <Route path="/signup" component={Signup} />
         <Route path="/map" component={DisplayMap}/>
         <Route path="/create" component={CreateItinerary}/>
+        {/*<Route path="/edit" component={EditItinerary}/>*/}
         <Route path="/itineraries" component={ItineraryList}/>
         <Route path="/itinerary/:id" component={Itinerary}/>
+        <Route path="/edit" component={InitializeFromStateForm}/>
       </Route>
     </Router>
   </Provider>,

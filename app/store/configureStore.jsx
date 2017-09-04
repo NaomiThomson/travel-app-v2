@@ -10,6 +10,8 @@ import {mapURLReducer} from 'reducers';
 import {itineraryListReducer} from 'reducers';
 import {ExampleReducer} from 'reducers';
 import {currentItineraryReducer} from 'reducers';
+import { reducer as reduxFormReducer } from 'redux-form';
+import account from '../components/account';
 
 export var configure = (initalState = {}) => {
   var reducer = redux.combineReducers({
@@ -18,7 +20,9 @@ export var configure = (initalState = {}) => {
     tripDetails: tripDetailsReducer,
     mapURL: mapURLReducer,
     itineraryList: itineraryListReducer,
-    currentItinerary: currentItineraryReducer
+    currentItinerary: currentItineraryReducer,
+    form: reduxFormReducer,
+    account
   });
 
   var store = redux.createStore(reducer, initalState, redux.compose(
