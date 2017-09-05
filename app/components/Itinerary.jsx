@@ -30,8 +30,8 @@ var Itinerary = React.createClass({
     return (
       <div>
         {currentItinerary.location}<br/>
-        {currentItinerary.startDate}<br/>
-        {currentItinerary.endDate}<br/>
+        {currentItinerary.startDate.split('T')[0]}<br/>
+        {currentItinerary.endDate.split('T')[0]}<br/>
 
         <Link to="/edit">Edit</Link>
         <button onClick={this.onClick} classLocation="btn" type="submit">Delete</button>
