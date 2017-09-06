@@ -31,13 +31,13 @@ var Itinerary = React.createClass({
     };
 
     axios.delete(`https://powerful-cliffs-81990.herokuapp.com/itinerary/${currentItinerary._id}`, headerConfig)
-    .then((res) => {
-      console.log(res)
-      this.props.history.push('/itineraries')
-    })
-    .catch((e) => {
-      console.log(e)
-    })
+      .then((res) => {
+        console.log(res)
+        this.props.history.push('/itineraries')
+      })
+      .catch((e) => {
+        console.log(e)
+      })
 
   },
 
@@ -45,19 +45,21 @@ var Itinerary = React.createClass({
     let { currentItinerary } = this.props;
 
     return (
-      <div>
+      <div className="wrapper">
 
-        <GoogleMapReact
-          center={{ lat: this.props.coordinates.lat, lng: this.props.coordinates.lng }}
-          zoom={8}
-          style={{ height: '400px' }}
-        >
+        <div>
+          <GoogleMapReact
+            center={{ lat: this.props.coordinates.lat, lng: this.props.coordinates.lng }}
+            zoom={8}
+            style={{ height: '400px', position: 'relative !important' }}
+          >
 
-        </GoogleMapReact><br/>
-
-        {currentItinerary.location}<br/>
-        {currentItinerary.startDate.split('T')[0]}<br/>
-        {currentItinerary.endDate.split('T')[0]}<br/>
+          </GoogleMapReact>
+        </div><br/>
+        
+        {currentItinerary.location}<br />
+        {currentItinerary.startDate.split('T')[0]}<br />
+        {currentItinerary.endDate.split('T')[0]}<br />
 
         <Link to="/edit">Edit</Link>
         <button onClick={this.onClick} classLocation="btn" type="submit">Delete</button>

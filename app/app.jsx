@@ -8,12 +8,11 @@ var Main = require('Main');
 import Landing from 'Landing';
 import Login from 'Login';
 import Signup from 'Signup';
-import DisplayMap from 'DisplayMap';
 import CreateItinerary from 'CreateItinerary';
 import ItineraryList from 'ItineraryList';
 import Itinerary from 'Itinerary';
 import EditItinerary from 'EditItinerary';
-// import InitializeFromStateForm from 'InitializeFromStateForm';
+import App from 'App';
 
 var actions = require('actions');
 var store = require('configureStore').configure();
@@ -31,12 +30,12 @@ ReactDOM.render(
         <IndexRoute component={Landing}/>
         <Route path="/login" component={Login}/>
         <Route path="/signup" component={Signup} />
-        <Route path="/map" component={DisplayMap}/>
         <Route path="/create" component={CreateItinerary}/>
         <Route path="/edit" component={EditItinerary}/>
         <Route path="/itineraries" component={ItineraryList}/>
         <Route path="/itinerary/:id" component={Itinerary}/>
-        {/*<Route path="/edit" component={InitializeFromStateForm}/>*/}
+        <Route path="test" component={App}/>
+      
       </Route>
     </Router>
   </Provider>,

@@ -29,7 +29,8 @@ var EditItinerary = React.createClass({
           startDate: res.data.itinerary.startDate,
           endDate: res.data.itinerary.endDate,
           location: res.data.itinerary.location,
-          id: res.data.itinerary._id
+          _id: res.data.itinerary._id,
+          _creator: res.data.itinerary._creator
         }
         dispatch(actions.setCurrentItinerary(currentItinerary));
         this.props.history.push(`itinerary/${res.data._id}`);
