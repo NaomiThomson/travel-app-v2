@@ -12,20 +12,6 @@ export var setCoords = (coordinates) => {
   }
 };
 
-export var setTripDetails = (tripDetails) => {
-  return {
-    type: "SET_TRIP_DETAILS",
-    tripDetails
-  }
-};
-
-export var setMapURL = (mapURL) => {
-  return {
-    type: "SET_MAP_URL",
-    mapURL
-  }
-};
-
 export var setItineraryList = (itineraryList) => {
   return {
     type: "SET_ITINERARY_LIST",

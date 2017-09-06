@@ -13,7 +13,7 @@ var CreateItinerary = React.createClass({
     e.preventDefault();
 
 
-    let { dispatch, sessionInfo, tripDetails } = this.props;
+    let { dispatch, sessionInfo, currentItinerary } = this.props;
 
     // temporarily hard coding dates
     let payload =
@@ -29,35 +29,20 @@ var CreateItinerary = React.createClass({
 
     axios.post('https://powerful-cliffs-81990.herokuapp.com/itinerary', payload, headerConfig)
       .then((res) => {
-        let tripDetails = {
+        let currentItinerary = {
           startDate: res.data.startDate,
           endDate: res.data.endDate,
           location: res.data.location,
-          id: res.data._id
+          id: res.data._id,
+          creator: res.data._creator
         }
-        dispatch(actions.setTripDetails(tripDetails));
-        this.getCoordinates(); 
-        this.props.history.push('/map');
+        dispatch(actions.setCurrentItinerary(currentItinerary));
+        this.props.history.push(`itinerary/${res.data._id}`);
       })
       .catch((e) => {
         console.log(e)
       });
 
-  },
-  getCoordinates: function () {
-    let { dispatch } = this.props;
-    let location = this.props.tripDetails.location;
-
-    if (location) {
-      var query = `https://maps.googleapis.com/maps/api/geocode/json?address=${location}&key=AIzaSyAr02UkNoe3UCCVrkyMNFWKA_PtseA-9gc`;
-      axios.get(query)
-        .then((res) => {
-          dispatch(actions.setCoords(res.data.results[0].geometry.location));
-        })
-        .catch((err) => {
-          console.log(err)
-        })
-    }
   },
   render: function () {
     let date = '';

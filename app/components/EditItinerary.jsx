@@ -32,32 +32,13 @@ var EditItinerary = React.createClass({
           id: res.data.itinerary._id
         }
         dispatch(actions.setCurrentItinerary(currentItinerary));
-        this.getCoordinates();
-        this.props.history.push('/map');
+        this.props.history.push(`itinerary/${res.data._id}`);
       })
       .catch((e) => {
         console.log(e)
       });
 
 
-  },
-
-  getCoordinates: function () {
-
-    console.log('getting coords')
-    let { dispatch, currentItinerary } = this.props;
-
-    if (location) {
-      var query = `https://maps.googleapis.com/maps/api/geocode/json?address=${currentItinerary.location}&key=AIzaSyAr02UkNoe3UCCVrkyMNFWKA_PtseA-9gc`;
-      axios.get(query)
-        .then((res) => {
-          console.log(res.data)
-          dispatch(actions.setCoords(res.data.results[0].geometry.location));
-        })
-        .catch((err) => {
-          console.log(err)
-        })
-    }
   },
 
   render: function () {

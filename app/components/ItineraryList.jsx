@@ -30,7 +30,7 @@ var ItineraryList = React.createClass({
     let { itineraryList } = this.props;
 
     if (itineraryList.length > 0) {
-      return itineraryList.map(function (itinerary) {
+      return itineraryList.slice(0).reverse().map(function (itinerary) {
         return (
           <div className="col-md-12 col-lg-4">
             <ItineraryLink {...itinerary} />

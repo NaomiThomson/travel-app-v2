@@ -1,10 +1,27 @@
 var React = require('react');
+import GoogleMapReact from 'google-map-react';
 var { connect } = require('react-redux');
 var { Link, IndexLink } = require('react-router');
 var axios = require('axios');
 var actions = require('actions');
 
 var Itinerary = React.createClass({
+  componentWillMount: function () {
+    let { dispatch } = this.props;
+    let location = this.props.currentItinerary.location;
+
+    if (location) {
+      var query = `https://maps.googleapis.com/maps/api/geocode/json?address=${location}&key=AIzaSyAr02UkNoe3UCCVrkyMNFWKA_PtseA-9gc`;
+      axios.get(query)
+        .then((res) => {
+          dispatch(actions.setCoords(res.data.results[0].geometry.location));
+        })
+        .catch((err) => {
+          console.log(err)
+        })
+    }
+  },
+
   onClick: function () {
 
     let { currentItinerary, sessionInfo } = this.props;
@@ -29,6 +46,15 @@ var Itinerary = React.createClass({
 
     return (
       <div>
+
+        <GoogleMapReact
+          center={{ lat: this.props.coordinates.lat, lng: this.props.coordinates.lng }}
+          zoom={8}
+          style={{ height: '400px' }}
+        >
+
+        </GoogleMapReact><br/>
+
         {currentItinerary.location}<br/>
         {currentItinerary.startDate.split('T')[0]}<br/>
         {currentItinerary.endDate.split('T')[0]}<br/>

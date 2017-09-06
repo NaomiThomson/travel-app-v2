@@ -5,8 +5,6 @@ import thunk from 'redux-thunk';
 
 import {sessionInfoReducer} from 'reducers';
 import {coordsReducer} from 'reducers';
-import {tripDetailsReducer} from 'reducers';
-import {mapURLReducer} from 'reducers';
 import {itineraryListReducer} from 'reducers';
 import {ExampleReducer} from 'reducers';
 import {currentItineraryReducer} from 'reducers';
@@ -16,8 +14,6 @@ export var configure = (initalState = {}) => {
   var reducer = redux.combineReducers({
     sessionInfo: sessionInfoReducer,
     coordinates: coordsReducer,
-    tripDetails: tripDetailsReducer,
-    mapURL: mapURLReducer,
     itineraryList: itineraryListReducer,
     currentItinerary: currentItineraryReducer
   });
