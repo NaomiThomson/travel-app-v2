@@ -10,8 +10,7 @@ import {mapURLReducer} from 'reducers';
 import {itineraryListReducer} from 'reducers';
 import {ExampleReducer} from 'reducers';
 import {currentItineraryReducer} from 'reducers';
-// import { reducer as reduxFormReducer } from 'redux-form';
-// import account from '../components/account';
+
 
 export var configure = (initalState = {}) => {
   var reducer = redux.combineReducers({
