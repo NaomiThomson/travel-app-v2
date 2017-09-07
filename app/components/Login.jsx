@@ -26,7 +26,7 @@ var Login = React.createClass({
           loggedIn: true
         }
         dispatch(actions.setSessionInfo(sessionInfo));
-        this.props.history.push('/itineraries');
+        this.props.history.push('/');
       }).catch((e) => {
         console.log(e);
       })

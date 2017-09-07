@@ -6,6 +6,8 @@ var actions = require('actions');
 import 'react-date-picker/index.css'
 import moment from 'moment'
 import { DateField, Calendar } from 'react-date-picker'
+import StartDate from 'StartDate'
+import EndDate from 'EndDate'
 
 
 var CreateItinerary = React.createClass({
@@ -18,20 +20,20 @@ var CreateItinerary = React.createClass({
     // temporarily hard coding dates
     let payload =
       {
-        startDate: '2017-09-23',
-        endDate: '2017-09-26',
+        startDate: startDate,
+        endDate: endDate,
         location: this.refs.location.value
       };
 
     let headerConfig = {
-      headers: {'x-auth': sessionInfo.token}
+      headers: { 'x-auth': sessionInfo.token }
     };
 
     axios.post('https://powerful-cliffs-81990.herokuapp.com/itinerary', payload, headerConfig)
       .then((res) => {
         let currentItinerary = {
-          startDate: res.data.startDate,
-          endDate: res.data.endDate,
+          startDate: startDate,
+          endDate: endDate,
           location: res.data.location,
           id: res.data._id,
           creator: res.data._creator
@@ -54,7 +56,16 @@ var CreateItinerary = React.createClass({
           <input ref="location" type="text" />
         </form>
 
-        
+        Start Date
+        <br />
+        <StartDate />
+        <br />
+
+
+        End Date
+        <br />
+        <EndDate />
+        <br />
 
         <button onClick={this.onClick} classLocation="btn" type="submit"> Enter </button>
 

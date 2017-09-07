@@ -8,11 +8,10 @@ var Main = require('Main');
 import Landing from 'Landing';
 import Login from 'Login';
 import Signup from 'Signup';
-import CreateItinerary from 'CreateItinerary';
-import ItineraryList from 'ItineraryList';
-import Itinerary from 'Itinerary';
-import EditItinerary from 'EditItinerary';
-import App from 'App';
+import CreateJourney from 'CreateJourney';
+import JourneyList from 'JourneyList';
+import Journey from 'Journey';
+import EditJourney from 'EditJourney';
 
 var actions = require('actions');
 var store = require('configureStore').configure();
@@ -30,11 +29,10 @@ ReactDOM.render(
         <IndexRoute component={Landing}/>
         <Route path="/login" component={Login}/>
         <Route path="/signup" component={Signup} />
-        <Route path="/create" component={CreateItinerary}/>
-        <Route path="/edit" component={EditItinerary}/>
-        <Route path="/itineraries" component={ItineraryList}/>
-        <Route path="/itinerary/:id" component={Itinerary}/>
-        <Route path="test" component={App}/>
+        <Route path="/create" component={CreateJourney}/>
+        <Route path="/journey/edit/:id" component={EditJourney}/>
+        <Route path="/itineraries" component={JourneyList}/>
+        <Route path="/journey/:id" component={Journey}/>
       
       </Route>
     </Router>

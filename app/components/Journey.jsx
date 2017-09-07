@@ -5,13 +5,13 @@ var { Link, IndexLink } = require('react-router');
 var axios = require('axios');
 var actions = require('actions');
 
-var Itinerary = React.createClass({
+var Journey = React.createClass({
   componentWillMount: function () {
     let { dispatch } = this.props;
-    let location = this.props.currentItinerary.location;
+    let destination = this.props.currentJourney.destination;
 
-    if (location) {
-      var query = `https://maps.googleapis.com/maps/api/geocode/json?address=${location}&key=AIzaSyAr02UkNoe3UCCVrkyMNFWKA_PtseA-9gc`;
+    if (destination) {
+      var query = `https://maps.googleapis.com/maps/api/geocode/json?address=${destination}&key=AIzaSyAr02UkNoe3UCCVrkyMNFWKA_PtseA-9gc`;
       axios.get(query)
         .then((res) => {
           dispatch(actions.setCoords(res.data.results[0].geometry.location));
@@ -24,13 +24,13 @@ var Itinerary = React.createClass({
 
   onClick: function () {
 
-    let { currentItinerary, sessionInfo } = this.props;
+    let { currentJourney, sessionInfo } = this.props;
 
     let headerConfig = {
       headers: { 'x-auth': sessionInfo.token }
     };
 
-    axios.delete(`https://powerful-cliffs-81990.herokuapp.com/itinerary/${currentItinerary._id}`, headerConfig)
+    axios.delete(`https://powerful-cliffs-81990.herokuapp.com/journey/${currentJourney._id}`, headerConfig)
       .then((res) => {
         console.log(res)
         this.props.history.push('/itineraries')
@@ -42,7 +42,7 @@ var Itinerary = React.createClass({
   },
 
   render: function () {
-    let { currentItinerary } = this.props;
+    let { currentJourney } = this.props;
 
     return (
       <div className="wrapper">
@@ -57,9 +57,9 @@ var Itinerary = React.createClass({
           </GoogleMapReact>
         </div><br/>
         
-        {currentItinerary.location}<br />
-        {currentItinerary.startDate.split('T')[0]}<br />
-        {currentItinerary.endDate.split('T')[0]}<br />
+        {/*{currentJourney.destination}<br />
+        {currentJourney.startDate.split('T')[0]}<br />
+        {currentJourney.endDate.split('T')[0]}<br />*/}
 
         <Link to="/edit">Edit</Link>
         <button onClick={this.onClick} classLocation="btn" type="submit">Delete</button>
@@ -72,4 +72,4 @@ export default connect(
   (state) => {
     return state;
   }
-)(Itinerary);
+)(Journey);

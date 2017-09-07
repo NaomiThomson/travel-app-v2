@@ -3,37 +3,37 @@ var { connect } = require('react-redux');
 var { Link, Link } = require('react-router');
 var axios = require('axios');
 var actions = require('actions');
-import ItineraryLink from 'ItineraryLink';
+import JourneyLink from 'JourneyLink';
 
-var ItineraryList = React.createClass({
+var JourneyList = React.createClass({
   componentWillMount: function () {
-    this.getItineraryList();
+    this.getJourneyList();
   },
-  getItineraryList: function () {
+  getJourneyList: function () {
     let { dispatch, sessionInfo } = this.props;
 
     let headerConfig = {
       headers: { 'x-auth': sessionInfo.token }
     };
 
-    axios.get('https://powerful-cliffs-81990.herokuapp.com/itinerary/me', headerConfig)
+    axios.get('https://powerful-cliffs-81990.herokuapp.com/journey/me', headerConfig)
       .then((res) => {
-        dispatch(actions.setItineraryList(res.data.itinerary));
+        dispatch(actions.setJourneyList(res.data.journey));
       })
       .catch((err) => {
         console.log(err)
       });
 
   },
-  renderItineraryList: function () {
+  renderJourneyList: function () {
 
-    let { itineraryList } = this.props;
+    let { JourneyList } = this.props;
 
-    if (itineraryList.length > 0) {
-      return itineraryList.slice(0).reverse().map(function (itinerary) {
+    if (JourneyList.length > 0) {
+      return JourneyList.slice(0).reverse().map(function (journey) {
         return (
           <div className="col-md-12 col-lg-4">
-            <ItineraryLink {...itinerary} />
+            <JourneyLink {...journey} />
           </div>
         )
       })
@@ -50,7 +50,7 @@ var ItineraryList = React.createClass({
   render: function () {
     return (
       <div>
-        {this.renderItineraryList()}
+        {this.renderJourneyList()}
       </div>
     )
   }
@@ -60,4 +60,4 @@ export default connect(
   (state) => {
     return state;
   }
-)(ItineraryList);
+)(JourneyList);

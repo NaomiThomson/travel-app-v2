@@ -12,16 +12,23 @@ export var setCoords = (coordinates) => {
   }
 };
 
-export var setItineraryList = (itineraryList) => {
+export var setJourneyList = (journeyList) => {
   return {
-    type: "SET_ITINERARY_LIST",
-    itineraryList
+    type: "SET_JOURNEY_LIST",
+    journeyList
   }
 };
 
-export var setCurrentItinerary = (currentItinerary) => {
+export var setCurrentJourney = (currentJourney) => {
   return {
-    type: "SET_CURRENT_ITINERARY",
-    currentItinerary
+    type: "SET_CURRENT_JOURNEY",
+    currentJourney
   }
 };
+
+export var setJourneyInfo = (journeyInfo) => {
+  return {
+    type: "SET_JOURNEY_INFO",
+    journeyInfo
+  }
+}

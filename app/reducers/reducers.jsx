@@ -28,32 +28,49 @@ export var coordsReducer = (state = coordsDefault, action) => {
   }
 };
 
-var itineraryListDefault = {
+var journeyListDefault = {
   list: undefined
 };
 
-export var itineraryListReducer = (state = itineraryListDefault, action) => {
+export var journeyListReducer = (state = journeyListDefault, action) => {
   switch (action.type) {
-    case 'SET_ITINERARY_LIST':
-      return action.itineraryList;
+    case 'SET_JOURNEY_LIST':
+      return action.journeyList;
     default: 
       return state
   }
 };
 
-var currentItineraryDefault = {
-  _id: undefined,
-  _creator: undefined,
-  endDate: undefined,
+var currentJourneyDefault = {
+  _id: undefined
+};
+
+export var currentJourneyReducer = (state = currentJourneyDefault, action) => {
+  switch (action.type) {
+    case 'SET_CURRENT_JOURNEY':
+      return action.currentJourney;
+    default: 
+      return state
+  }
+};
+
+
+var journeyInfoDefault = {
+  title: undefined,
+  destination: undefined,
   startDate: undefined,
-  location: undefined
+  endDate: undefined,
+  entries: undefined,
+  _creator: undefined,
+  _id: undefined
 };
 
-export var currentItineraryReducer = (state = currentItineraryDefault, action) => {
+export var journeyInfoReducer = (state = journeyInfoDefault, action) => {
   switch (action.type) {
-    case 'SET_CURRENT_ITINERARY':
-      return action.currentItinerary;
+    case 'SET_JOURNEY_INFO':
+      return action.journeyInfo;
     default: 
       return state
   }
-};
+}
+
