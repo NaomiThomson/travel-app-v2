@@ -41,7 +41,7 @@ var JourneyList = React.createClass({
     } else {
       return (
         <div>
-          Please log in first!
+          No journeys to view
         </div>
       )
     }

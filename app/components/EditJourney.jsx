@@ -16,21 +16,25 @@ var EditJourney = React.createClass({
       })
   },
 
-  renderActivities: function () {
+  renderEntries: function () {
 
-    // let { currentJourney } = this.props;
-    // let activitesList = [];
+    let { journeyInfo } = this.props;
+    let entriesList = [];
 
-    // if (this.props.currentJourney._id === this.props.routeParams.id) {
-    //   for (var i = 0; i < currentJourney.activites.length; i++) {
-    //     activitiesList.push(currentJourney.activites[i]);
-    //     return activitesList
-    //   }
-    // } else {
-    //   return "Loading..."
-    // }
+    if (this.props.journeyInfo._id === this.props.routeParams.id) {
 
-    return (<div>Loading...</div>)
+      return journeyInfo.entries.map(function (entry) {
+        return (
+          <div className="col-md-12 col-lg-4">
+            {entry.entryText}
+          </div>
+        )
+      })
+
+    } else {
+      return "Loading..."
+    }
+
   },
 
   renderForms: function () {
@@ -39,7 +43,7 @@ var EditJourney = React.createClass({
     if (this.props.journeyInfo._id === this.props.routeParams.id) {
       return (
         <div>
-          <div>Here you can edit title and destination. As well as start filling out individual activites! {this.props.routeParams.id}</div>
+          <div>Here you can edit title and destination. As well as start filling out individual entries! {this.props.routeParams.id}</div>
 
           <form>
             <label>Title</label>
@@ -58,7 +62,7 @@ var EditJourney = React.createClass({
           </form><br />
 
           <div>
-            {this.renderActivities()}
+            {this.renderEntries()}
           </div><br />
 
           <form>
