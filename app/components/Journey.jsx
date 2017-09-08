@@ -51,13 +51,14 @@ var Journey = React.createClass({
           <div>
             <GoogleMapReact
               center={{ lat: this.props.coordinates.lat, lng: this.props.coordinates.lng }}
-              zoom={20}
+              zoom={12}
               style={{ height: '400px', position: 'relative !important' }}
             >
 
             </GoogleMapReact>
           </div><br />
 
+          {journeyInfo.title}<br />
           {journeyInfo.destination}<br />
           {journeyInfo.startDate.split('T')[0]}<br />
           {journeyInfo.endDate.split('T')[0]}<br />

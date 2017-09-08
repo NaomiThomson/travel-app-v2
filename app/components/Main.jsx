@@ -6,13 +6,15 @@ import Navigation from 'Navigation';
 var Main = (props) => {
   return (
     <div>
+
+      <IndexLink to="/" className="nav-link">
+        <h4 className="title animated fadeIn" style={{ 'font-size': '250%' }}> Travel Recommendations Blog </h4>
+      </IndexLink>
+
       <div className="row">
         <Navigation/>
       </div>
       
-      <IndexLink to="/" className="nav-link">
-        <h1 className="title animated fadeIn"> Travel App </h1>
-      </IndexLink>
       <div className="container">
         {props.children}
       </div>

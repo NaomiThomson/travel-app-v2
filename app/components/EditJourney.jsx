@@ -44,20 +44,20 @@ var EditJourney = React.createClass({
       return (
         <div>
           <div>Here you can edit title and destination. As well as start filling out individual entries! 
-          </div>
+          </div><br/>
 
           <form>
-            <label>Title</label>
-            <input type="text" ref="title" defaultValue={journeyInfo.title} /><br />
+            <label>Title</label><br/>
+            <input type="text" ref="title" defaultValue={journeyInfo.title} /><br /><br/>
 
-            <label>Destination</label>
-            <input type="text" ref="destination" defaultValue={journeyInfo.destination} /><br />
+            <label>Destination</label><br/>
+            <input type="text" ref="destination" defaultValue={journeyInfo.destination} /><br /><br/>
 
-            <label>Start Date</label>
-            <input type="text" ref="startDate" defaultValue={journeyInfo.startDate.split('T')[0]} /><br />
+            <label>Start Date</label><br/>
+            <input type="text" ref="startDate" defaultValue={journeyInfo.startDate.split('T')[0]} /><br /><br/>
 
-            <label>End Date</label>
-            <input type="text" ref="endDate" defaultValue={journeyInfo.endDate.split('T')[0]} /><br />
+            <label>End Date</label><br/>
+            <input type="text" ref="endDate" defaultValue={journeyInfo.endDate.split('T')[0]} /><br /><br/>
 
             <button type="submit" onClick={this.handleInfoClick}>Submit</button>
           </form><br />
@@ -68,7 +68,7 @@ var EditJourney = React.createClass({
 
           <form>
             <label>Entry</label>
-            <input type="text" ref="entry" /><br />
+            <input type="text" ref="entry" /><br /><br/>
 
             <button type="submit" onClick={this.handleEntryClick}>Submit</button>
           </form>
@@ -113,7 +113,6 @@ var EditJourney = React.createClass({
           _id: result._id
         }));
 
-        console.log(res.data.journey)
       })
       .catch((e) => {
         console.log(e)
@@ -137,7 +136,6 @@ var EditJourney = React.createClass({
       .then((res) => {
 
         let result = res.data;
-        console.log(res.data)
 
         dispatch(actions.setJourneyInfo({
           startDate: result.startDate,
@@ -148,8 +146,6 @@ var EditJourney = React.createClass({
           _creator: result._creator,
           _id: result._id
         }));
-
-        console.log(res.data)
       })
       .catch((e) => {
         console.log(e)
@@ -167,7 +163,6 @@ var EditJourney = React.createClass({
 
     axios.delete(`https://powerful-cliffs-81990.herokuapp.com/journey/${journeyInfo._id}`, headerConfig)
       .then((res) => {
-        console.log(res)
         this.props.history.push('/myjourneys')
       })
       .catch((e) => {

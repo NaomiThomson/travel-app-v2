@@ -19,7 +19,6 @@ var JourneyList = React.createClass({
 
     axios.get('https://powerful-cliffs-81990.herokuapp.com/journey/me', headerConfig)
       .then((res) => {
-        console.log(res.data.journey)
         dispatch(actions.setJourneyList(res.data.journey));
       })
       .catch((err) => {
