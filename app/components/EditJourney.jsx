@@ -68,7 +68,9 @@ var EditJourney = React.createClass({
 
           <form>
             <label>Entry</label>
-            <input type="text" ref="entry" /><br /><br/>
+            <input type="text" ref="entry" /><br />
+
+            <Link to={`/recommendations/${journeyInfo._id}`}>Need recommendations?</Link><br/><br/>
 
             <button type="submit" onClick={this.handleEntryClick}>Submit</button>
           </form>

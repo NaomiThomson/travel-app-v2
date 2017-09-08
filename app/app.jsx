@@ -12,6 +12,7 @@ import CreateJourney from 'CreateJourney';
 import JourneyList from 'JourneyList';
 import Journey from 'Journey';
 import EditJourney from 'EditJourney';
+import Recommendations from 'Recommendations';
 
 var actions = require('actions');
 var store = require('configureStore').configure();
@@ -33,6 +34,7 @@ ReactDOM.render(
         <Route path="/journey/edit/:id" component={EditJourney}/>
         <Route path="/myjourneys" component={JourneyList}/>
         <Route path="/journey/:id" component={Journey}/>
+        <Route path="/recommendations/:id" component={Recommendations}/>
       
       </Route>
     </Router>
