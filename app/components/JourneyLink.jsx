@@ -9,12 +9,12 @@ var JourneyLink = React.createClass({
     let {dispatch, _id} = this.props;
 
     dispatch(actions.setCurrentJourney({
-      _id
+      id : _id
     }));
   },
   render: function () {
 
-    let JourneyLink = "/Journey/" + this.props._id;
+    let JourneyLink = `/journey/${this.props._id}`;
 
     return (
       <div>

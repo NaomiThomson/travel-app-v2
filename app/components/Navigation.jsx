@@ -12,11 +12,11 @@ var Navigation = React.createClass({
       return <Link to="/create">Create</Link>
     }
   },
-  renderMyItineraries: function () {
+  renderMyJourneys: function () {
     let { sessionInfo } = this.props;
 
     if (sessionInfo.loggedIn) {
-      return <Link to="/itineraries">My Itineraries</Link>
+      return <Link to="/myjourneys">My Journeys</Link>
     }
   },
   renderLoginLogout: function () {
@@ -54,7 +54,7 @@ var Navigation = React.createClass({
 
         <p className="nav-link">{this.renderCreate()}</p>
 
-        <p className="nav-link">{this.renderMyItineraries()}</p>
+        <p className="nav-link">{this.renderMyJourneys()}</p>
       </div>
     );
   }

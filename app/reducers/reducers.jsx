@@ -41,20 +41,6 @@ export var journeyListReducer = (state = journeyListDefault, action) => {
   }
 };
 
-var currentJourneyDefault = {
-  _id: undefined
-};
-
-export var currentJourneyReducer = (state = currentJourneyDefault, action) => {
-  switch (action.type) {
-    case 'SET_CURRENT_JOURNEY':
-      return action.currentJourney;
-    default: 
-      return state
-  }
-};
-
-
 var journeyInfoDefault = {
   title: undefined,
   destination: undefined,

@@ -43,7 +43,8 @@ var EditJourney = React.createClass({
     if (this.props.journeyInfo._id === this.props.routeParams.id) {
       return (
         <div>
-          <div>Here you can edit title and destination. As well as start filling out individual entries! {this.props.routeParams.id}</div>
+          <div>Here you can edit title and destination. As well as start filling out individual entries! 
+          </div>
 
           <form>
             <label>Title</label>
@@ -83,7 +84,7 @@ var EditJourney = React.createClass({
   handleInfoClick: function (e) {
     e.preventDefault();
 
-    let { dispatch, sessionInfo, currentJourney } = this.props;
+    let { dispatch, sessionInfo, journeyInfo } = this.props;
 
     let payload =
       {
@@ -97,7 +98,7 @@ var EditJourney = React.createClass({
       headers: { 'x-auth': sessionInfo.token }
     };
 
-    axios.patch(`https://powerful-cliffs-81990.herokuapp.com/journey/${currentJourney.id}`, payload, headerConfig)
+    axios.patch(`https://powerful-cliffs-81990.herokuapp.com/journey/${journeyInfo._id}`, payload, headerConfig)
       .then((res) => {
 
         let result = res.data.journey;
@@ -122,7 +123,7 @@ var EditJourney = React.createClass({
   handleEntryClick: function (e) {
     e.preventDefault();
 
-    let { dispatch, sessionInfo, currentJourney } = this.props;
+    let { dispatch, sessionInfo, journeyInfo } = this.props;
 
     let payload = {
       entries: this.refs.entry.value
@@ -132,7 +133,7 @@ var EditJourney = React.createClass({
       headers: { 'x-auth': sessionInfo.token }
     };
 
-    axios.patch(`https://powerful-cliffs-81990.herokuapp.com/journey/addentry/${currentJourney.id}`, payload, headerConfig)
+    axios.patch(`https://powerful-cliffs-81990.herokuapp.com/journey/addentry/${journeyInfo._id}`, payload, headerConfig)
       .then((res) => {
 
         let result = res.data;
@@ -156,10 +157,30 @@ var EditJourney = React.createClass({
 
   },
 
+  handleDeleteClick: function () {
+
+    let { journeyInfo, sessionInfo } = this.props;
+
+    let headerConfig = {
+      headers: { 'x-auth': sessionInfo.token }
+    };
+
+    axios.delete(`https://powerful-cliffs-81990.herokuapp.com/journey/${journeyInfo._id}`, headerConfig)
+      .then((res) => {
+        console.log(res)
+        this.props.history.push('/myjourneys')
+      })
+      .catch((e) => {
+        console.log(e)
+      })
+
+  },
+
   render: function () {
     return (
       <div>
-        {this.renderForms()}
+        {this.renderForms()}<br/>
+        <button onClick={this.handleDeleteClick} classLocation="btn" type="submit">Delete</button>
       </div>
     )
   }

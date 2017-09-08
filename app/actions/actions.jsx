@@ -19,13 +19,6 @@ export var setJourneyList = (journeyList) => {
   }
 };
 
-export var setCurrentJourney = (currentJourney) => {
-  return {
-    type: "SET_CURRENT_JOURNEY",
-    currentJourney
-  }
-};
-
 export var setJourneyInfo = (journeyInfo) => {
   return {
     type: "SET_JOURNEY_INFO",

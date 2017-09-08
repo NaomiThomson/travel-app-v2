@@ -7,11 +7,26 @@ var actions = require('actions');
 
 var Journey = React.createClass({
   componentWillMount: function () {
-    let { dispatch } = this.props;
-    let destination = this.props.currentJourney.destination;
+    this.getJourneyInfo();
+  },
 
-    if (destination) {
-      var query = `https://maps.googleapis.com/maps/api/geocode/json?address=${destination}&key=AIzaSyAr02UkNoe3UCCVrkyMNFWKA_PtseA-9gc`;
+  getJourneyInfo: function () {
+    let { dispatch } = this.props;
+
+    axios.get(`https://powerful-cliffs-81990.herokuapp.com/journey/${this.props.routeParams.id}`)
+      .then((res) => {
+        dispatch(actions.setJourneyInfo(res.data.journey));
+        this.getCoords();
+      }).catch((e) => {
+        console.log(e);
+      })
+  },
+
+  getCoords: function () {
+    let { dispatch, journeyInfo } = this.props;
+
+    if (journeyInfo.destination) {
+      var query = `https://maps.googleapis.com/maps/api/geocode/json?address=${journeyInfo.destination}&key=AIzaSyAr02UkNoe3UCCVrkyMNFWKA_PtseA-9gc`;
       axios.get(query)
         .then((res) => {
           dispatch(actions.setCoords(res.data.results[0].geometry.location));
@@ -22,49 +37,34 @@ var Journey = React.createClass({
     }
   },
 
-  onClick: function () {
-
-    let { currentJourney, sessionInfo } = this.props;
-
-    let headerConfig = {
-      headers: { 'x-auth': sessionInfo.token }
-    };
-
-    axios.delete(`https://powerful-cliffs-81990.herokuapp.com/journey/${currentJourney._id}`, headerConfig)
-      .then((res) => {
-        console.log(res)
-        this.props.history.push('/itineraries')
-      })
-      .catch((e) => {
-        console.log(e)
-      })
-
-  },
-
   render: function () {
-    let { currentJourney } = this.props;
+    let { journeyInfo } = this.props;
 
-    return (
-      <div className="wrapper">
+    if (!journeyInfo.destination) {
+      return (
+        <div> Loading... </div>
+      )
+    } else {
+      return (
+        <div className="wrapper">
 
-        <div>
-          <GoogleMapReact
-            center={{ lat: this.props.coordinates.lat, lng: this.props.coordinates.lng }}
-            zoom={8}
-            style={{ height: '400px', position: 'relative !important' }}
-          >
+          <div>
+            <GoogleMapReact
+              center={{ lat: this.props.coordinates.lat, lng: this.props.coordinates.lng }}
+              zoom={20}
+              style={{ height: '400px', position: 'relative !important' }}
+            >
 
-          </GoogleMapReact>
-        </div><br/>
-        
-        {/*{currentJourney.destination}<br />
-        {currentJourney.startDate.split('T')[0]}<br />
-        {currentJourney.endDate.split('T')[0]}<br />*/}
+            </GoogleMapReact>
+          </div><br />
 
-        <Link to="/edit">Edit</Link>
-        <button onClick={this.onClick} classLocation="btn" type="submit">Delete</button>
-      </div>
-    )
+          {journeyInfo.destination}<br />
+          {journeyInfo.startDate.split('T')[0]}<br />
+          {journeyInfo.endDate.split('T')[0]}<br />
+
+        </div>
+      )
+    }
   }
 });
 

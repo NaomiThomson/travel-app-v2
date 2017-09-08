@@ -31,7 +31,7 @@ ReactDOM.render(
         <Route path="/signup" component={Signup} />
         <Route path="/create" component={CreateJourney}/>
         <Route path="/journey/edit/:id" component={EditJourney}/>
-        <Route path="/itineraries" component={JourneyList}/>
+        <Route path="/myjourneys" component={JourneyList}/>
         <Route path="/journey/:id" component={Journey}/>
       
       </Route>

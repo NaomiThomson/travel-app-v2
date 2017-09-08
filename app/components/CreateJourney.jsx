@@ -26,7 +26,7 @@ var CreateJourney = React.createClass({
         dispatch(actions.setCurrentJourney({
           id: res.data._id
         }));
-        this.props.history.push(`journey/edit/${res.data._id}`);
+        this.props.history.push(`journey/${res.data._id}`);
       }).catch((e) => {
         console.log(e);
       });
