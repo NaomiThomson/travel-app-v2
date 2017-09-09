@@ -7,8 +7,8 @@
     "test": "karma start",
     "start": "node server.js"
   },
-  "author": "Shawn Farsai",
-  "license": "MIT",
+  "author": "Naomi Thomson",
+  "license": "",
   "dependencies": {
     "animate.css": "^3.5.2",
     "axios": "^0.16.2",
@@ -18,14 +18,17 @@
     "jsonp": "^0.2.1",
     "load-google-maps-api": "^1.0.0",
     "moment": "^2.18.1",
+    "nib": "^1.1.2",
     "prop-types": "^15.5.10",
     "react": "^0.14.7",
     "react-date-picker": "^5.3.28",
     "react-dom": "^0.14.9",
     "react-google-maps": "^7.2.0",
     "react-loading": "^0.1.4",
+    "react-pure-render": "^1.0.2",
     "react-router": "^2.0.0",
-    "redux-form": "^7.0.3"
+    "redux-form": "^7.0.3",
+    "stylus": "^0.54.5"
   },
   "devDependencies": {
     "axios": "^0.16.2",

@@ -8,7 +8,7 @@ var Main = (props) => {
 
     <div id="brandLogo">
       <IndexLink to="/" className="nav-link">
-        <h4 className="title animated fadeIn" style={{ 'font-size': '250%' }}> Travel Recommendations Blog </h4>
+        <h4 className="title animated fadeIn"> Travel Recommendations Blog </h4>
       </IndexLink>
 
       <div className="row">

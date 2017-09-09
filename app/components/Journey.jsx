@@ -4,6 +4,8 @@ var { connect } = require('react-redux');
 var { Link, IndexLink } = require('react-router');
 var axios = require('axios');
 var actions = require('actions');
+import MapMarker from './MapMarker.jsx';
+
 
 var Journey = React.createClass({
   componentWillMount: function () {
@@ -37,27 +39,76 @@ var Journey = React.createClass({
     }
   },
 
-  render: function () {
+  renderImage: function () {
+
+    if (this.props.journeyInfo.hasFile) {
+      return (
+        <div>
+          <img src={`https://powerful-cliffs-81990.herokuapp.com/files/journey/${this.props.routeParams.id}`}
+            style={{ height: '200px' }} />
+        </div>
+      )
+    } else {
+      return (
+        <div>
+          no image
+          {/*<img src="../../public/images/traveler.jpg" />*/}
+        </div>
+      )
+    }
+  },
+
+  renderEntries: function () {
     let { journeyInfo } = this.props;
+    let entriesList = [];
+
+    if (this.props.journeyInfo._id === this.props.routeParams.id) {
+
+      return journeyInfo.entries.map(function (entry) {
+        return (
+          <div className="col-md-12 col-lg-4">
+            {entry.entryText}
+          </div>
+        )
+      })
+    }
+  },
+
+  renderMarkers: function () {
+    let { journeyInfo } = this.props
+
+    return journeyInfo.entries.map(function (entry) {
+      return (
+        <MapMarker lat={entry.lat} lng={entry.lng} text={'!'} />
+      )
+    })
+  },
+
+  render: function () {
+    let { journeyInfo, coordinates } = this.props;
 
     if (!journeyInfo.destination) {
       return (
         <div> Loading... </div>
       )
     } else {
+
       return (
         <div className="wrapper">
 
           <div>
             <GoogleMapReact
-              center={{ lat: this.props.coordinates.lat, lng: this.props.coordinates.lng }}
+              center={{ lat: coordinates.lat, lng: coordinates.lng }}
               zoom={12}
-              style={{ height: '400px', position: 'relative !important' }}
-            >
+              style={{ height: '400px', position: 'relative !important' }}>
 
+              {this.renderMarkers()}
             </GoogleMapReact>
           </div><br />
 
+          {this.renderEntries()}<br/>
+
+          {this.renderImage()}
           {journeyInfo.title}<br />
           {journeyInfo.destination}<br />
           {journeyInfo.startDate.split('T')[0]}<br />

@@ -3,7 +3,6 @@ var { connect } = require('react-redux');
 var { Link, Link } = require('react-router');
 var axios = require('axios');
 var actions = require('actions');
-// import JourneyLink from 'JourneyLink';
 
 var JourneyList = React.createClass({
   componentWillMount: function () {
@@ -38,7 +37,7 @@ var JourneyList = React.createClass({
             <Link to={`/journey/${journey._id}`} className="nav-link col-md-8 col-lg-8">
               <div className="card animated fadeIn">
                 <div className="card-block">
-                  <h4 className="card-title menu-title"> {journey.destination}  </h4>
+                  <h4 className="card-title menu-title"> {journey.title}  </h4>
                 </div>
               </div>
             </Link>

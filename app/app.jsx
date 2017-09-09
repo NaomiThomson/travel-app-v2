@@ -12,7 +12,6 @@ import CreateJourney from 'CreateJourney';
 import JourneyList from 'JourneyList';
 import Journey from 'Journey';
 import EditJourney from 'EditJourney';
-import Recommendations from 'Recommendations';
 import AllJourneys from 'AllJourneys';
 import Upload from 'Upload';
 
@@ -36,7 +35,6 @@ ReactDOM.render(
         <Route path="/journey/edit/:id" component={EditJourney}/>
         <Route path="/myjourneys" component={JourneyList}/>
         <Route path="/journey/:id" component={Journey}/>
-        <Route path="/recommendations/:id" component={Recommendations}/>
         <Route path="/alljourneys" component={AllJourneys} />
         <Route path="/upload" component={Upload} />
       </Route>

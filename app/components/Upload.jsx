@@ -4,29 +4,26 @@ var { Link, IndexLink } = require('react-router');
 var axios = require('axios');
 var actions = require('actions');
 
-
-
 var Upload = React.createClass({
   onFormSubmit: function () {
-    let { sessionInfo, dispatch } = this.props;
+    let { sessionInfo, dispatch, journeyInfo } = this.props;
 
     var fd = new FormData();
     fd.append('file', this.refs.file.getDOMNode().files[0]);
 
-    console.log(this.refs.file.getDOMNode().files[0]);
-    console.log(fd);
-
     $.ajax({
-      url: `https://powerful-cliffs-81990.herokuapp.com/upload/journey/59b1f801d018c00012bad760`,
+      url: `https://powerful-cliffs-81990.herokuapp.com/upload/journey/${journeyInfo._id}`,
       data: fd,
       processData: false,
       contentType: false,
       type: 'POST',
       success: function (data) {
         dispatch(actions.toggleUploaded());
+        axios.patch(`https://powerful-cliffs-81990.herokuapp.com/journey/hasFile/true/${journeyInfo._id}`)
       }
     });
   },
+
   renderForm: function () {
     let { uploading } = this.props;
 
@@ -39,7 +36,7 @@ var Upload = React.createClass({
         </div>
       )
     } else {
-      return "ID Upload complete!!"
+      return "Upload complete!!"
     }
   },
   render: function () {

@@ -3,6 +3,7 @@ var { connect } = require('react-redux');
 var { Link, IndexLink } = require('react-router');
 var axios = require('axios');
 var actions = require('actions');
+import Upload from 'Upload';
 
 var EditJourney = React.createClass({
 
@@ -43,21 +44,24 @@ var EditJourney = React.createClass({
     if (this.props.journeyInfo._id === this.props.routeParams.id) {
       return (
         <div>
-          <div>Here you can edit title and destination. As well as start filling out individual entries! 
-          </div><br/>
+
+          <div>Here you can edit your journey information, start adding places to visit, and upload a cover photo!
+          </div><br />
+
+          <Upload /><br />
 
           <form>
-            <label>Title</label><br/>
-            <input type="text" ref="title" defaultValue={journeyInfo.title} /><br /><br/>
+            <label>Title</label><br />
+            <input type="text" ref="title" defaultValue={journeyInfo.title} /><br /><br />
 
-            <label>Destination</label><br/>
-            <input type="text" ref="destination" defaultValue={journeyInfo.destination} /><br /><br/>
+            <label>Destination</label><br />
+            <input type="text" ref="destination" defaultValue={journeyInfo.destination} /><br /><br />
 
-            <label>Start Date</label><br/>
-            <input type="text" ref="startDate" defaultValue={journeyInfo.startDate.split('T')[0]} /><br /><br/>
+            <label>Start Date</label><br />
+            <input type="text" ref="startDate" defaultValue={journeyInfo.startDate.split('T')[0]} /><br /><br />
 
-            <label>End Date</label><br/>
-            <input type="text" ref="endDate" defaultValue={journeyInfo.endDate.split('T')[0]} /><br /><br/>
+            <label>End Date</label><br />
+            <input type="text" ref="endDate" defaultValue={journeyInfo.endDate.split('T')[0]} /><br /><br />
 
             <button type="submit" onClick={this.handleInfoClick}>Submit</button>
           </form><br />
@@ -69,8 +73,6 @@ var EditJourney = React.createClass({
           <form>
             <label>Entry</label>
             <input type="text" ref="entry" /><br />
-
-            <Link to={`/recommendations/${journeyInfo._id}`}>Need recommendations?</Link><br/><br/>
 
             <button type="submit" onClick={this.handleEntryClick}>Submit</button>
           </form>
@@ -121,14 +123,30 @@ var EditJourney = React.createClass({
       });
   },
 
-  handleEntryClick: function (e) {
-    e.preventDefault();
+  getCoords: function (place) {
 
-    let { dispatch, sessionInfo, journeyInfo } = this.props;
+    var query = `https://maps.googleapis.com/maps/api/geocode/json?address=${place}&key=AIzaSyAr02UkNoe3UCCVrkyMNFWKA_PtseA-9gc`;
+    axios.get(query)
+      .then((res) => {
+        this.sendEntry(res.data.results[0].geometry.location);
+      })
+      .catch((err) => {
+        console.log(err)
+      })
+
+
+  },
+
+  sendEntry: function (coords) {
+
+    let { sessionInfo, journeyInfo, dispatch } = this.props;
 
     let payload = {
-      entries: this.refs.entry.value
+      entryText: this.refs.entry.value,
+      lat: coords.lat,
+      lng: coords.lng
     };
+
 
     let headerConfig = {
       headers: { 'x-auth': sessionInfo.token }
@@ -152,6 +170,14 @@ var EditJourney = React.createClass({
       .catch((e) => {
         console.log(e)
       });
+  },
+
+  handleEntryClick: function (e) {
+    e.preventDefault();
+
+    let { dispatch, sessionInfo, journeyInfo } = this.props
+
+    this.getCoords(this.refs.entry.value)
 
   },
 
@@ -176,7 +202,7 @@ var EditJourney = React.createClass({
   render: function () {
     return (
       <div>
-        {this.renderForms()}<br/>
+        {this.renderForms()}<br />
         <button onClick={this.handleDeleteClick} classLocation="btn" type="submit">Delete</button>
       </div>
     )

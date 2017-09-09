@@ -75,7 +75,7 @@ export var journeyListAllReducer = (state = journeyListAllDefault, action) => {
 
 export var toggleUploadingReducer = (state = true, action) => {
   switch (action.type) {
-    case "TOGGLE_ID_UPLOADED":
+    case "TOGGLE_UPLOADED":
       return !state;
     default:
       return state;
