@@ -60,6 +60,7 @@ var Navigation = React.createClass({
             <li><IndexLink to="/">Home</IndexLink></li>
             <li><a class="waves-effect waves-teal btn-flat" onClick={this.handleLoginLogoutClick}>{this.renderLoginLogout()}</a></li>
             <li><a class="waves-effect waves-teal btn-flat"> {this.renderCreate()} </a> </li>
+            <li><a class="waves-effect waves-teal btn-flat"> {this.renderMyJourneys()} </a></li>
             <li><a class="waves-effect waves-teal btn-flat">{this.renderAllJourneys()} </a> </li>
           </ul>
         </div>
