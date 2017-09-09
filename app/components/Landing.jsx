@@ -3,8 +3,8 @@ var React = require('react');
 var Landing = React.createClass({
   render: function () {
     return (
-      <div>
-        Landing Component
+      <div classNamw="row center">
+        <h1> Welcome to MyJourney!</h1>
       </div>
     );
   }

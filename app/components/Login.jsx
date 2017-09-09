@@ -34,8 +34,8 @@ var Login = React.createClass({
   },
   render: function () {
     return (
-      <div>
-        <form ref="form" onSubmit={this.onFormSubmit} className="animated fadeIn">        
+      <div className="row login-form">
+        <form ref="form" onSubmit={this.onFormSubmit} className="animated fadeIn">
           <div className="form-group">
             <label for="loginEmail"> Email </label>
             <input type="email" className="form-control" id="loginEmail" ref="loginEmail" />

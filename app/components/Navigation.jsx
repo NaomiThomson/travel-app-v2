@@ -50,20 +50,20 @@ var Navigation = React.createClass({
   },
   render: function () {
     return (
-      <div>
-        <nav className="navbar navbar-toggleable-md navbar-light bg-faded" id="navbarComplete">
+      <nav>
+        <div className="nav-wrapper">
+          <IndexLink to="/" className="brand-logo right hide-on-med-and-down">
+            <h4 className="title animated fadeIn">MyTinerary</h4>
+          </IndexLink>
 
-          <IndexLink to="/" className="nav-link"> Home </IndexLink>
-
-          <p className="nav-link" onClick={this.handleLoginLogoutClick}>{this.renderLoginLogout()}</p>
-
-          <p className="nav-link">{this.renderCreate()}</p>
-
-          <p className="nav-link">{this.renderMyJourneys()}</p>
-
-          <p className="nav-link">{this.renderAllJourneys()}</p>
-        </nav>
-      </div>
+          <ul id="nav-mobile">
+            <li><IndexLink to="/">Home</IndexLink></li>
+            <li><a class="waves-effect waves-teal btn-flat" onClick={this.handleLoginLogoutClick}>{this.renderLoginLogout()}</a></li>
+            <li><a class="waves-effect waves-teal btn-flat"> {this.renderCreate()} </a> </li>
+            <li><a class="waves-effect waves-teal btn-flat">{this.renderAllJourneys()} </a> </li>
+          </ul>
+        </div>
+      </nav>
     );
   }
 });

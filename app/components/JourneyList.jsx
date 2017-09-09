@@ -33,15 +33,17 @@ var JourneyList = React.createClass({
     if (journeyList.length > 0) {
       return journeyList.slice(0).reverse().map(function (journey) {
         return (
-          <div className="col-md-12 col-lg-12">
-            <Link to={`/journey/${journey._id}`} className="nav-link col-md-8 col-lg-8">
-              <div className="card animated fadeIn">
-                <div className="card-block">
-                  <h4 className="card-title menu-title"> {journey.title}  </h4>
+          <div className="row">
+            <div className="col s12 m6 l6 x6">
+              <Link to={`/journey/${journey._id}`} className="col m6 col l6">
+                <div className="card animated fadeIn">
+                  <div className="card-block">
+                    <h4 className="card-title menu-title"> {journey.destination}  </h4>
+                  </div>
                 </div>
-              </div>
-            </Link>
-            <Link to={`/journey/edit/${journey._id}`} className="nav-link col-md-4 col-lg-4">Edit</Link>
+              </Link>
+              <Link to={`/journey/edit/${journey._id}`} className="nav-link col-md-4 col-lg-4">Edit</Link>
+            </div>
           </div>
         )
       })

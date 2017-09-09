@@ -22,7 +22,7 @@ store.subscribe(() => {
   var state = store.getState();
 });
 
-require('style!css!sass!applicationStyles');
+// require('style!css!sass!applicationStyles');
 
 ReactDOM.render(
   <Provider store={store}>
