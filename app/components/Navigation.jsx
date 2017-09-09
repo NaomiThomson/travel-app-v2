@@ -19,6 +19,9 @@ var Navigation = React.createClass({
       return <Link to="/myjourneys">My Journeys</Link>
     }
   },
+  renderAllJourneys: function () {
+    return <Link to="/alljourneys">All Journeys</Link>
+  },
   renderLoginLogout: function () {
     let { sessionInfo } = this.props;
 
@@ -48,13 +51,18 @@ var Navigation = React.createClass({
   render: function () {
     return (
       <div>
-        <IndexLink to="/" className="nav-link"> Home </IndexLink>
+        <nav className="navbar navbar-toggleable-md navbar-light bg-faded" id="navbarComplete">
 
-        <p className="nav-link" onClick={this.handleLoginLogoutClick}>{this.renderLoginLogout()}</p>
+          <IndexLink to="/" className="nav-link"> Home </IndexLink>
 
-        <p className="nav-link">{this.renderCreate()}</p>
+          <p className="nav-link" onClick={this.handleLoginLogoutClick}>{this.renderLoginLogout()}</p>
 
-        <p className="nav-link">{this.renderMyJourneys()}</p>
+          <p className="nav-link">{this.renderCreate()}</p>
+
+          <p className="nav-link">{this.renderMyJourneys()}</p>
+
+          <p className="nav-link">{this.renderAllJourneys()}</p>
+        </nav>
       </div>
     );
   }

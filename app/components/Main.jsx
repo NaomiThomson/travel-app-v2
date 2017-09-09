@@ -1,24 +1,26 @@
 var React = require('react');
-var {Link, IndexLink} = require('react-router');
+var { Link, IndexLink } = require('react-router');
 
 import Navigation from 'Navigation';
 
 var Main = (props) => {
   return (
-    <div>
 
+    <div id="brandLogo">
       <IndexLink to="/" className="nav-link">
         <h4 className="title animated fadeIn" style={{ 'font-size': '250%' }}> Travel Recommendations Blog </h4>
       </IndexLink>
 
       <div className="row">
-        <Navigation/>
+        <Navigation />
       </div>
-      
-      <div className="container">
+
+      <div className="container" id="createContain">
         {props.children}
       </div>
+
     </div>
+
   );
 }
 

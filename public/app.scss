@@ -1,0 +1,258 @@
+@import "base/variables";
+
+//Google Fonts
+@import url('https://fonts.googleapis.com/css?family=Amatic+SC|Raleway');
+
+// //Foundation
+// @import "base/foundation-settings";
+// @import "foundation";
+// @include foundation-everything;
+
+//Components
+.cartLogin {
+  margin-left: 15px;
+  font-family: Raleway;
+  font-size: 1.5rem;
+  color: black;
+  float: right;
+};
+
+.cartLogin:hover{
+  color: orange;
+};
+
+.title{
+  text-align: center;
+  font-family: Amatic SC;
+  font-size: 60px;
+  cursor: point;
+  color: black;
+  &:hover {
+  text-decoration: none;
+  color: #4464AD;
+  }
+};
+
+#brandLogo {
+    background-color: transparent;
+}
+
+.font {
+  font-family: Raleway;
+}
+
+.btn-outline-primary {
+  color: black;
+  border: 1px solid black;
+}
+
+.btn:focus {
+  outline: 0 !important ;
+  box-shadow: none;
+}
+
+
+.btn-outline-primary:hover {
+  background-color: black;
+  color: white;
+  border: 1px solid black;
+}
+
+.btn-outline-primary.active, .btn-outline-primary:active, .show>.btn-outline-primary.dropdown-toggle {
+  background-color: black;
+  border: 1px solid black;
+}
+
+.menu-title {
+  font-size: 20px;
+}
+
+.menu-category {
+  font-size: 15px;
+}
+
+@media (max-width: 700px) {
+  .menu-title {
+    font-size: 30px;
+  }
+
+  .menu-category {
+    font-size: 20px;
+  }
+}
+
+.btn-group.btn-group-vertical > .btn {
+  width: 300px;
+}
+
+/* making the border-radius correct */
+.btn-group.btn-group-vertical > .btn:first-child {
+  border-radius: 6px 6px 0 0;
+}
+.btn-group.btn-group-vertical > .btn:first-child:not(:last-child):not(.dropdown-toggle) {
+  border-top-right-radius: 6px;
+}
+.btn-group.btn-group-vertical > .btn:last-child:not(:first-child) {
+  border-radius: 0 0 6px 6px;
+}
+
+.uploadForm {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+#navTest {
+  // background-color: red;
+  // max-width: 250px;
+  // display: inline;
+  padding: none;
+  margin: auto;
+  background-color: white;
+  font-weight: bold;
+}
+
+#logInBtn {
+  margin: 0px;
+}
+
+.nav-link {
+  margin-bottom: 0px;
+  padding-bottom: 0px;
+  padding-top: 0px;
+  background-color: white;
+}
+
+.navbar {
+  background-color: white;
+  width: 100%;
+}
+
+#landingZone {
+  border-style: solid;
+  border-color: red;
+  border-width: 3px;
+  position: fixed;
+  right: 0; 
+  bottom: 0;
+  min-width: 100%; 
+  min-height: 100%;
+  width: auto; 
+  height: auto;
+  z-index: -100;
+}
+
+#video-background {
+/*  making the video fullscreen  */
+  position: fixed;
+  right: 0; 
+  bottom: 0;
+  min-width: 100%; 
+  min-height: 100%;
+  width: auto; 
+  height: auto;
+  z-index: -100;
+}
+
+#makeItin {
+  // border-style: solid;
+  // border-color: red;
+  // border-width: 3px;
+    // right: 0; 
+    // bottom: 0;
+    // max-width: 100%; 
+    // max-height: 100%;
+    // width: auto; 
+    // height: auto;
+    width: 250px;
+    margin: auto;
+    text-align: center;
+    font-weight: bold;
+    font-size: 18px;
+    padding-top: 75px;
+}
+
+.panel-body {
+  margin-bottom: 10px;
+}
+
+
+#createContain {
+  // border-style: solid;
+  // border-color: red;
+  // border-width: 3px;
+    width: 100%;
+    height:100vh;
+    margin: auto;
+    padding: 0;
+    display:block;
+    overflow: auto;
+    position: relative;
+    padding-top: 100px;
+      /* Location of the image */
+    background-image: url(https://i.pinimg.com/originals/53/99/b9/5399b9ea71c0d36ee018b2b798e717b4.jpg);
+    
+    /* Background image is centered vertically and horizontally at all times */
+    background-position: center center;
+    
+    /* Background image doesn't tile */
+    background-repeat: no-repeat;
+    
+    /* Background image is fixed in the viewport so that it doesn't move when 
+      the content's height is greater than the image's height */
+    background-attachment: fixed;
+    
+    /* This is what makes the background image rescale based
+      on the container's size */
+    background-size: cover;
+    
+    /* Set a background color that will be displayed
+      while the background image is loading */
+    background-color: #464646;
+}
+
+#signlog {
+    margin: auto;
+    width: 500px;
+    color: black;
+    font-weight: bold;
+    /* background-color: rgba(0, 0, 0, 0.4); */
+    padding: 25px;
+    border-radius: 25px;
+    /* z-index: 3000; */
+}
+
+#signlogbtn {
+    margin-bottom: 10px;
+}
+
+#acctyet {
+    margin-bottom: 0px;
+}
+
+#signreg {
+    margin: auto;
+    width: 500px;
+    color: black;
+    font-weight: bold;
+    /* background-color: rgba(0, 0, 0, 0.4); */
+    padding: 25px;
+    border-radius: 25px;
+    /* z-index: 3000; */
+}
+
+#signregbtn {
+    margin-bottom: 10px;
+}
+
+#signyet {
+    margin-bottom: 0px;
+}
+
+#regNav {
+     color: white; 
+}
+
+#logNav {
+     color: white; 
+}
+

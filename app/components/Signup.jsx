@@ -37,7 +37,7 @@ var Signup = React.createClass({
   },
   render: function () {
     return (
-      <div>
+      <div id="signreg">
         <form ref="form" onSubmit={this.onFormSubmit} className="animated fadeIn">
           <div className="form-group">
             <label for="SignupUsername"> Username </label>
@@ -56,7 +56,7 @@ var Signup = React.createClass({
 
           <button type="submit" className="btn btn-primary">Signup</button>
         </form>
-        <p> Already have an account?  <Link to="/login">  Login! </Link> </p>
+        <p id="signyet"> Already have an account?  <Link to="/login">  Login! </Link> </p>
       </div>
     );
   }

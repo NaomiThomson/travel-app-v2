@@ -60,3 +60,25 @@ export var journeyInfoReducer = (state = journeyInfoDefault, action) => {
   }
 }
 
+var journeyListAllDefault = {
+  list: undefined
+};
+
+export var journeyListAllReducer = (state = journeyListAllDefault, action) => {
+  switch (action.type) {
+    case 'SET_JOURNEY_LIST_ALL':
+      return action.journeyListAll;
+    default:
+      return state
+  }
+};
+
+export var toggleUploadingReducer = (state = true, action) => {
+  switch (action.type) {
+    case "TOGGLE_ID_UPLOADED":
+      return !state;
+    default:
+      return state;
+  };
+};
+

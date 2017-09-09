@@ -25,3 +25,16 @@ export var setJourneyInfo = (journeyInfo) => {
     journeyInfo
   }
 }
+
+export var setJourneyListAll = (journeyListAll) => {
+  return {
+    type: "SET_JOURNEY_LIST_ALL",
+    journeyListAll
+  }
+}
+
+export var toggleUploaded = () => {
+  return {
+    type: "TOGGLE_UPLOADED"
+  };
+};

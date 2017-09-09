@@ -48,7 +48,7 @@ var Login = React.createClass({
 
           <button type="submit" className="btn btn-primary">Login</button>
         </form>
-        <p> Don't have an account yet?  <Link to="/signup"> Sign up! </Link> </p>
+        <p id="acctyet"> Don't have an account yet?  <Link to="/signup"> Sign up! </Link> </p>
       </div>
     );
   }

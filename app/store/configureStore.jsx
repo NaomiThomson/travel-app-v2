@@ -7,6 +7,8 @@ import {sessionInfoReducer} from 'reducers';
 import {coordsReducer} from 'reducers';
 import {journeyListReducer} from 'reducers';
 import { journeyInfoReducer } from 'reducers';
+import { journeyListAllReducer } from 'reducers'
+import { toggleUploadingReducer } from 'reducers';
 
 
 export var configure = (initalState = {}) => {
@@ -14,7 +16,9 @@ export var configure = (initalState = {}) => {
     sessionInfo: sessionInfoReducer,
     coordinates: coordsReducer,
     journeyList: journeyListReducer,
-    journeyInfo: journeyInfoReducer
+    journeyInfo: journeyInfoReducer,
+    journeyListAll: journeyListAllReducer,
+    uploading: toggleUploadingReducer
   });
 
   var store = redux.createStore(reducer, initalState, redux.compose(

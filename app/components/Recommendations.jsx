@@ -3,6 +3,8 @@ var { connect } = require('react-redux');
 var { Link, IndexLink } = require('react-router');
 var axios = require('axios');
 var actions = require('actions');
+var jsonp = require('jsonp');
+// var nearbysearch = require('../../NearBySearch.js');
 
 var Recommendations = React.createClass({
 
@@ -37,15 +39,17 @@ var Recommendations = React.createClass({
 
     let { coordinates } = this.props;
 
-    axios.get(`https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=${coordinates.lat},${coordinates.lng}&radius=500&type=restaurant&key=AIzaSyDbaq9neFNZLwne4dXgFkuLowv1buHk5zw`)
-    .then((res) => {
+    // axios.get(`https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=${coordinates.lat},${coordinates.lng}&radius=500&type=restaurant&key=AIzaSyDbaq9neFNZLwne4dXgFkuLowv1buHk5zw`)
+    // .then((res) => {
 
-      let places = res.data.results; 
+    //   let places = res.data.results; 
 
-      for (var i = 0; i < places.length; i++ ) {
-        console.log(places[i].place_id)
-      }
-    })
+    //   for (var i = 0; i < places.length; i++ ) {
+    //     console.log(places[i].place_id)
+    //   }
+    // })
+
+    console.log(nearbysearch)
     
   },
 

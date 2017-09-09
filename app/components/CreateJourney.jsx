@@ -32,26 +32,29 @@ var CreateJourney = React.createClass({
       })
 
   },
+
+
   render: function () {
     return (
-      <div>
+      <div className="panel panel-default" id="makeItin">
+        <div className="panel-body">
+          <form ref="form" onSubmit={this.onFormSubmit}>
 
-        <form ref="form" onSubmit={this.onFormSubmit}>
+            <label>Title</label><br />
+            <input ref="title" type="text" placeholder="My Great Adventure!" /><br /><br />
 
-          <label>Title</label><br/>
-          <input ref="title" type="text" placeholder="My Great Adventure!"/><br/><br/>
+            <label>Destination</label><br />
+            <input ref="destination" type="text" placeholder="Portland, OR" /><br /><br />
 
-          <label>Destination</label><br/>
-          <input ref="destination" type="text" placeholder="Portland, OR"/><br/><br/>
+            <label>Start Date</label><br />
+            <input ref="startDate" type="text" placeholder="09-09-17" /><br /><br />
 
-          <label>Start Date</label><br/>
-          <input ref="startDate" type="text" placeholder="09-09-17"/><br /><br/>
+            <label>End Date</label><br />
+            <input ref="endDate" type="text" placeholder="09-18-17" /><br /><br />
 
-          <label>End Date</label><br/>
-          <input ref="endDate" type="text" placeholder="09-18-17"/><br /><br/>
-
-          <button type="submit">Let's Go!</button>
-        </form>
+            <button type="submit">Let's Go!</button>
+          </form>
+        </div> 
       </div>
     )
   }
