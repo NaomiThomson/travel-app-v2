@@ -19,9 +19,6 @@ var Navigation = React.createClass({
       return <Link to="/myjourneys" style={{ color: "#F4F2ED" }} className="waves-effect waves-teal btn-flat">My Journeys</Link>
     }
   },
-  renderAllJourneys: function () {
-    return <Link to="/alljourneys" style={{ color: "#F4F2ED" }} className="waves-effect waves-teal btn-flat">All Journeys</Link>
-  },
   renderLoginLogout: function () {
     let { sessionInfo } = this.props;
 
@@ -61,11 +58,9 @@ var Navigation = React.createClass({
           </IndexLink>
 
           <ul id="nav-mobile" >
-            {/*<li><IndexLink style={{ color: "#F4F2ED" }} to="/"> MyTinerary </IndexLink></li>*/}
             <li><a className="waves-effect waves-teal btn-flat" onClick={this.handleLoginLogoutClick}>{this.renderLoginLogout()}</a></li>
             <li>{this.renderCreate()} </li>
             <li>{this.renderMyJourneys()} </li>
-            <li>{this.renderAllJourneys()} </li>
           </ul>
         </div>
       </nav>

@@ -56,7 +56,7 @@ var Signup = React.createClass({
 
           <button type="submit" className="btn btn-primary">Signup</button>
         </form>
-        <p id="signyet"> Already have an account?  <Link to="/login">  Login! </Link> </p>
+        <p> Already have an account?  <Link style={{ color: "#26A69A" }} to="/login">  Login! </Link> </p>
       </div>
     );
   }

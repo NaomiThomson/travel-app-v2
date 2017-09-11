@@ -48,7 +48,7 @@ var Login = React.createClass({
 
           <button style={{ backgroundColor: "#F0A202" }} type="submit" className="btn btn-primary">Login</button>
         </form>
-        <p> Don't have an account yet?  <Link style={{ color: "#202030" }} to="/signup"> Sign up! </Link> </p>
+        <p> Don't have an account yet?  <Link style={{ color: "#26A69A" }} to="/signup"> Sign up! </Link> </p>
       </div>
     );
   }
