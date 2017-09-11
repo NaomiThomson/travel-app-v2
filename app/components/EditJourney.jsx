@@ -45,11 +45,10 @@ var EditJourney = React.createClass({
       return (
         <div>
 
-          <div>Here you can edit your journey information, start adding places to visit, and upload a cover photo!
+          <Upload /><br /><br/><br/>
+
+          <div><h5>Edit journey information</h5>
           </div><br />
-
-          <Upload /><br />
-
           <form>
             <label>Title</label><br />
             <input type="text" ref="title" defaultValue={journeyInfo.title} /><br /><br />
@@ -63,18 +62,20 @@ var EditJourney = React.createClass({
             <label>End Date</label><br />
             <input type="text" ref="endDate" defaultValue={journeyInfo.endDate.split('T')[0]} /><br /><br />
 
-            <button type="submit" onClick={this.handleInfoClick}>Submit</button>
-          </form><br />
+            <button style={{ backgroundColor: "#F0A202" }} className="btn" type="submit" onClick={this.handleInfoClick}>Submit</button>
+          </form><br /><br/><br/>
 
+
+          <div><h5>Add things to do or places to see</h5>
+          </div><br />
           <div>
             {this.renderEntries()}
           </div><br />
 
           <form>
-            <label>Entry</label>
             <input type="text" ref="entry" /><br />
 
-            <button type="submit" onClick={this.handleEntryClick}>Submit</button>
+            <button style={{ backgroundColor: "#F0A202" }} className="btn" type="submit" onClick={this.handleEntryClick}>Submit</button>
           </form>
 
         </div>
@@ -189,21 +190,31 @@ var EditJourney = React.createClass({
       headers: { 'x-auth': sessionInfo.token }
     };
 
-    axios.delete(`https://powerful-cliffs-81990.herokuapp.com/journey/${journeyInfo._id}`, headerConfig)
-      .then((res) => {
-        this.props.history.push('/myjourneys')
-      })
-      .catch((e) => {
-        console.log(e)
-      })
+    let userConfirm = confirm('Are you sure you want to delete this journey? All contents will be lost.')
+
+    if (userConfirm) {
+      axios.delete(`https://powerful-cliffs-81990.herokuapp.com/journey/${journeyInfo._id}`, headerConfig)
+        .then((res) => {
+          this.props.history.push('/myjourneys')
+        })
+        .catch((e) => {
+          console.log(e)
+        })
+    } 
+
 
   },
 
   render: function () {
+
+    let { journeyInfo } = this.props;
+    
     return (
-      <div>
-        {this.renderForms()}<br />
-        <button onClick={this.handleDeleteClick} classLocation="btn" type="submit">Delete</button>
+      <div style={{ margin: "100px" }}>
+        {this.renderForms()}<br /><br/><br/>
+        
+        <Link className="btn" style={{ backgroundColor: "#F0A202" }} to={`/journey/${journeyInfo._id}`}>Preview Journey</Link>
+        <button style={{ backgroundColor: "#F0A202" }} className="btn" onClick={this.handleDeleteClick} type="submit">Delete Journey</button>
       </div>
     )
   }

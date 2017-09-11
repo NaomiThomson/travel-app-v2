@@ -33,19 +33,39 @@ var AllJourneys = React.createClass({
 
     if (journeyListAll.length > 0) {
       return journeyListAll.slice(0).reverse().map(function (journey) {
-        return (
-          <div className="row">
-            <div className="col s6 m6 l6">
+        if (journey.hasFile){
+          return (
+            <div className="col s12 m4">
               <Link to={`/journey/${journey._id}`}>
-                <div className="card animated fadeIn">
-                  <div className="card">
-                    <h4 className="card-panel teal"> {journey.destination}  </h4>
+                <div className="card" style={{ backgroundColor: "#202030"}}>
+                  <div className="card-image">
+                    <img src={`https://powerful-cliffs-81990.herokuapp.com/files/journey/${journey._id}`} />
+                  </div>
+                  <div className="card-content white-text">
+                    <h4 className="card-title"> {journey.destination}  </h4>
                   </div>
                 </div>
               </Link>
             </div>
-          </div>
-        )
+          )
+        } else {
+          return (
+            <div className="col s12 m4">
+              <Link to={`/journey/${journey._id}`}>
+                <div className="card" style={{ backgroundColor: "#202030" }}>
+                  <div className="card-image">
+                    <img src="./images/default.jpg"/>
+                    {/*<img src="http://wallpaperpulse.com/img/568509.jpg"/>*/}
+                  </div>
+                  <div className="card-content white-text">
+                    <h4 className="card-title"> {journey.destination}  </h4>
+                  </div>
+                </div>
+              </Link>
+            </div>
+          )
+        }
+        
       })
 
     } else {
@@ -59,7 +79,7 @@ var AllJourneys = React.createClass({
   },
   render: function () {
     return (
-      <div>
+      <div style={{ marginTop: "100px" }} className="row">
         {this.renderJourneyListAll()}
       </div>
     )

@@ -33,24 +33,22 @@ var JourneyList = React.createClass({
     if (journeyList.length > 0) {
       return journeyList.slice(0).reverse().map(function (journey) {
         return (
-          <div className="row">
-            <div className="col s12 m6 l6 x6">
-              <Link to={`/journey/${journey._id}`} className="col m6 col l6">
-                <div className="card animated fadeIn">
-                  <div className="card-block">
-                    <h4 className="card-title menu-title"> {journey.destination}  </h4>
-                  </div>
+          <div className="col s12 m4">
+            <Link to={`/journey/edit/${journey._id}`}>
+              <div className="card" style={{ backgroundColor: "#202030"}}>
+                <div className="card-content white-text">
+                  <span className="card-title">{journey.destination}</span>
+                  <p>Click to edit</p>
                 </div>
-              </Link>
-              <Link to={`/journey/edit/${journey._id}`} className="nav-link col-md-4 col-lg-4">Edit</Link>
-            </div>
+              </div>
+            </Link>
           </div>
         )
       })
 
     } else {
       return (
-        <div>
+        <div className="row">
           No journeys to view
         </div>
       )
@@ -59,7 +57,7 @@ var JourneyList = React.createClass({
   },
   render: function () {
     return (
-      <div>
+      <div className="row" style={{ margin: "100px" }}>
         {this.renderJourneyList()}
       </div>
     )

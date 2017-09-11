@@ -36,7 +36,7 @@ var CreateJourney = React.createClass({
 
   render: function () {
     return (
-      <div className="panel panel-default" id="makeItin">
+      <div className="panel panel-default" style={{ marginTop: "100px" }}>
         <div className="panel-body">
           <form ref="form" onSubmit={this.onFormSubmit}>
 
@@ -52,7 +52,7 @@ var CreateJourney = React.createClass({
             <label>End Date</label><br />
             <input ref="endDate" type="text" placeholder="09-18-17" /><br /><br />
 
-            <button type="submit">Let's Go!</button>
+            <button style={{ backgroundColor: "#F0A202" }} className="waves-effect waves-light btn" type="submit">Let's Go!</button>
           </form>
         </div> 
       </div>

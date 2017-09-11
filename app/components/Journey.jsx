@@ -66,8 +66,9 @@ var Journey = React.createClass({
 
       return journeyInfo.entries.map(function (entry) {
         return (
-          <div className="col-md-12 col-lg-4">
-            {entry.entryText}
+          <div>
+            <li className="collection-item">{entry.entryText}</li>
+            
           </div>
         )
       })
@@ -77,9 +78,12 @@ var Journey = React.createClass({
   renderMarkers: function () {
     let { journeyInfo } = this.props
 
+    let count = 0;
+
     return journeyInfo.entries.map(function (entry) {
+      count ++;
       return (
-        <MapMarker lat={entry.lat} lng={entry.lng} text={'!'} />
+        <MapMarker lat={entry.lat} lng={entry.lng} text={count}/>
       )
     })
   },
@@ -94,25 +98,34 @@ var Journey = React.createClass({
     } else {
 
       return (
-        <div className="wrapper">
+        <div style={{ marginTop: "100px" }} className="wrapper">
+          <div className="row">
+            <div className="col s12 m6">
+              <h1>{journeyInfo.title}! </h1>
+            </div>
+            <div className="col s12 m6">
+              <h4>Destination: {journeyInfo.destination}</h4>
+              <p>Start: {journeyInfo.startDate.split('T')[0]}</p>
+              <p>End: {journeyInfo.endDate.split('T')[0]}</p>
+            </div>
+         
+          </div>
+          <div className="row">
+            <div className="col s12 m6">
+              <GoogleMapReact
+                center={{ lat: coordinates.lat, lng: coordinates.lng }}
+                zoom={12}
+                style={{ height: '400px', position: 'relative !important' }}>
 
-          <div>
-            <GoogleMapReact
-              center={{ lat: coordinates.lat, lng: coordinates.lng }}
-              zoom={12}
-              style={{ height: '400px', position: 'relative !important' }}>
-
-              {this.renderMarkers()}
-            </GoogleMapReact>
-          </div><br />
-
-          {this.renderEntries()}<br/>
-
-          {this.renderImage()}
-          {journeyInfo.title}<br />
-          {journeyInfo.destination}<br />
-          {journeyInfo.startDate.split('T')[0]}<br />
-          {journeyInfo.endDate.split('T')[0]}<br />
+                {this.renderMarkers()}
+              </GoogleMapReact>
+            </div>
+            <div className="col s12 m6">
+              <ol className="collection">
+                {this.renderEntries()}
+              </ol>  
+            </div>
+          </div>
 
         </div>
       )

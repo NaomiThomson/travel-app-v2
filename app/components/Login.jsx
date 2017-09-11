@@ -10,7 +10,7 @@ var Login = React.createClass({
   onFormSubmit: function (e) {
     e.preventDefault();
 
-    let {dispatch} = this.props;
+    let { dispatch } = this.props;
 
     let payload = {
       email: this.refs.loginEmail.value,
@@ -34,7 +34,7 @@ var Login = React.createClass({
   },
   render: function () {
     return (
-      <div className="row login-form">
+      <div style={{ marginTop: "100px" }} className="row login-form">
         <form ref="form" onSubmit={this.onFormSubmit} className="animated fadeIn">
           <div className="form-group">
             <label for="loginEmail"> Email </label>
@@ -46,9 +46,9 @@ var Login = React.createClass({
             <input type="password" className="form-control" id="loginPassword" ref="loginPassword" />
           </div>
 
-          <button type="submit" className="btn btn-primary">Login</button>
+          <button style={{ backgroundColor: "#F0A202" }} type="submit" className="btn btn-primary">Login</button>
         </form>
-        <p id="acctyet"> Don't have an account yet?  <Link to="/signup"> Sign up! </Link> </p>
+        <p> Don't have an account yet?  <Link style={{ color: "#202030" }} to="/signup"> Sign up! </Link> </p>
       </div>
     );
   }

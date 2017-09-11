@@ -37,7 +37,7 @@ var Signup = React.createClass({
   },
   render: function () {
     return (
-      <div id="signreg">
+      <div style={{ margin: "100px" }}>
         <form ref="form" onSubmit={this.onFormSubmit} className="animated fadeIn">
           <div className="form-group">
             <label for="SignupUsername"> Username </label>

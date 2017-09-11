@@ -10,12 +10,12 @@ const MapMarkerStyle = {
   left: -K_WIDTH / 2,
   top: -K_HEIGHT / 2,
 
-  border: '5px solid #f44336',
+  border: '5px solid #26A69A',
   borderRadius: K_HEIGHT,
   backgroundColor: 'white',
   textAlign: 'center',
-  color: '#3f51b5',
-  fontSize: 16,
+  color: '#202030',
+  fontSize: 14,
   fontWeight: 'bold',
   padding: 4
 };

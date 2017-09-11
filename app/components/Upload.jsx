@@ -30,9 +30,9 @@ var Upload = React.createClass({
     if (uploading) {
       return (
         <div>
-          <p>Upload a cover photo for your trip!</p>
+          <h5>Upload cover photo</h5>
           <input ref="file" type="file" name="idFile" accept=".jpg,.jpeg,.pdf,.png" />
-          <button onClick={this.onFormSubmit}>Upload</button>
+          <button style={{ backgroundColor: "#F0A202" }} className="btn" onClick={this.onFormSubmit}>Upload</button>
         </div>
       )
     } else {

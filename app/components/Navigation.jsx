@@ -9,26 +9,30 @@ var Navigation = React.createClass({
     let { sessionInfo } = this.props;
 
     if (sessionInfo.loggedIn) {
-      return <Link to="/create">Create</Link>
+      return <Link to="/create" style={{ color: "#F4F2ED" }} className="waves-effect waves-teal btn-flat">Create</Link>
     }
   },
   renderMyJourneys: function () {
     let { sessionInfo } = this.props;
 
     if (sessionInfo.loggedIn) {
-      return <Link to="/myjourneys">My Journeys</Link>
+      return <Link to="/myjourneys" style={{ color: "#F4F2ED" }} className="waves-effect waves-teal btn-flat">My Journeys</Link>
     }
   },
   renderAllJourneys: function () {
-    return <Link to="/alljourneys">All Journeys</Link>
+    return <Link to="/alljourneys" style={{ color: "#F4F2ED" }} className="waves-effect waves-teal btn-flat">All Journeys</Link>
   },
   renderLoginLogout: function () {
     let { sessionInfo } = this.props;
 
     if (sessionInfo.loggedIn) {
-      return "Logout"
+      return (
+        <div style={{ color: "#F4F2ED" }} > Logout </div>
+      )
     } else {
-      return "Login"
+      return (
+        <div style={{ color: "#F4F2ED" }} > Login </div>
+      )
     }
   },
   handleLoginLogoutClick: function () {
@@ -50,18 +54,18 @@ var Navigation = React.createClass({
   },
   render: function () {
     return (
-      <nav>
+      <nav style={{ backgroundColor: "#39393A" }} >
         <div className="nav-wrapper">
           <IndexLink to="/" className="brand-logo right hide-on-med-and-down">
             <h4 className="title animated fadeIn">MyTinerary</h4>
           </IndexLink>
 
-          <ul id="nav-mobile">
-            <li><IndexLink to="/">Home</IndexLink></li>
-            <li><a class="waves-effect waves-teal btn-flat" onClick={this.handleLoginLogoutClick}>{this.renderLoginLogout()}</a></li>
-            <li><a class="waves-effect waves-teal btn-flat"> {this.renderCreate()} </a> </li>
-            <li><a class="waves-effect waves-teal btn-flat"> {this.renderMyJourneys()} </a></li>
-            <li><a class="waves-effect waves-teal btn-flat">{this.renderAllJourneys()} </a> </li>
+          <ul id="nav-mobile" >
+            {/*<li><IndexLink style={{ color: "#F4F2ED" }} to="/"> MyTinerary </IndexLink></li>*/}
+            <li><a className="waves-effect waves-teal btn-flat" onClick={this.handleLoginLogoutClick}>{this.renderLoginLogout()}</a></li>
+            <li>{this.renderCreate()} </li>
+            <li>{this.renderMyJourneys()} </li>
+            <li>{this.renderAllJourneys()} </li>
           </ul>
         </div>
       </nav>
