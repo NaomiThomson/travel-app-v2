@@ -13,6 +13,7 @@ import Journey from 'Journey';
 import EditJourney from 'EditJourney';
 import AllJourneys from 'AllJourneys';
 import Upload from 'Upload';
+import Landing from 'Landing';
 
 var actions = require('actions');
 var store = require('configureStore').configure();
@@ -28,6 +29,8 @@ ReactDOM.render(
     <Router history={hashHistory}>
       <Route path="/" component={Main}>
         <IndexRoute component={AllJourneys}/>
+        {/*<IndexRoute component={Landing} />*/}
+        <Route path="/alljourneys" component={AllJourneys}/>
         <Route path="/login" component={Login}/>
         <Route path="/signup" component={Signup} />
         <Route path="/create" component={CreateJourney}/>

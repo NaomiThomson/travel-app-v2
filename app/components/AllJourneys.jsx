@@ -37,9 +37,9 @@ var AllJourneys = React.createClass({
           return (
             <div className="col s12 m4">
               <Link to={`/journey/${journey._id}`}>
-                <div className="card" style={{ backgroundColor: "#202030"}}>
+                <div className="card" style={{ backgroundColor: "#202030", borderRadius: "10px"}}>
                   <div className="card-image">
-                    <img src={`https://powerful-cliffs-81990.herokuapp.com/files/journey/${journey._id}`} />
+                    <img src={`https://powerful-cliffs-81990.herokuapp.com/files/journey/${journey._id}`} style={{borderRadius: "10px"}}/>
                   </div>
                   <div className="card-content white-text">
                     <h5 className="card-title"> {journey.destination}  </h5>
@@ -79,10 +79,8 @@ var AllJourneys = React.createClass({
   },
   render: function () {
     return (
-      <div style={{ marginTop: "100px", textAlign: "center" }} className="row">
-        <h3>Welcome to MyTinerary</h3>
-        <h5>Browse journeys of travel enthusiasts from around the world</h5>
-        <h5>Add your own journey to share with friends and family</h5><br/><br/>
+      <div style={{ marginTop: "100px", textAlign: "center" }} className="row  animated bounceInRight">
+        <h1> Explore Journeys! </h1>
         {this.renderJourneyListAll()}
       </div>
     )

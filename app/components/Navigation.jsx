@@ -59,6 +59,7 @@ var Navigation = React.createClass({
 
           <ul id="nav-mobile" >
             <li><a className="waves-effect waves-teal btn-flat" onClick={this.handleLoginLogoutClick}>{this.renderLoginLogout()}</a></li>
+            <li><Link to="/alljourneys">EXPLORE</Link></li>
             <li>{this.renderCreate()} </li>
             <li>{this.renderMyJourneys()} </li>
           </ul>

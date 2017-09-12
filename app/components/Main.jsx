@@ -8,8 +8,9 @@ var Main = (props) => {
 
     <div className="container-fluid">
       <Navigation />
+      {/*<img src="./images/landing.jpg" style={{ width: "100%", position: "fixed" }} />*/}
 
-      <div className="container" id="createContain">
+      <div className="container">
         {props.children}
       </div>
 

@@ -54,7 +54,7 @@ var Signup = React.createClass({
             <input type="password" className="form-control" id="SignupPassword" ref="SignupPassword" />
           </div>
 
-          <button type="submit" className="btn btn-primary">Signup</button>
+          <button style={{ backgroundColor: "#F0A202" }} type="submit" className="btn btn-primary">Signup</button>
         </form>
         <p> Already have an account?  <Link style={{ color: "#26A69A" }} to="/login">  Login! </Link> </p>
       </div>

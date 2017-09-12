@@ -45,7 +45,7 @@ var EditJourney = React.createClass({
       return (
         <div>
 
-          <Upload /><br /><br/><br/>
+          <Upload /><br /><br /><br />
 
           <div><h5>Edit journey information</h5>
           </div><br />
@@ -63,7 +63,7 @@ var EditJourney = React.createClass({
             <input type="text" ref="endDate" defaultValue={journeyInfo.endDate.split('T')[0]} /><br /><br />
 
             <button style={{ backgroundColor: "#F0A202" }} className="btn" type="submit" onClick={this.handleInfoClick}>Submit</button>
-          </form><br /><br/><br/>
+          </form><br /><br /><br />
 
 
           <div><h5>Add things to do or places to see</h5>
@@ -200,20 +200,26 @@ var EditJourney = React.createClass({
         .catch((e) => {
           console.log(e)
         })
-    } 
+    }
 
 
+  },
+
+  handlePreviewClick: function () {
+    let { dispatch } = this.props;
+
+    dispatch(actions.toggleUploaded());
   },
 
   render: function () {
 
     let { journeyInfo } = this.props;
-    
+
     return (
       <div style={{ margin: "100px" }}>
-        {this.renderForms()}<br /><br/><br/>
-        
-        <Link className="btn" style={{ backgroundColor: "#F0A202" }} to={`/journey/${journeyInfo._id}`}>Preview Journey</Link>
+        {this.renderForms()}<br /><br /><br />
+
+        <Link className="btn" style={{ backgroundColor: "#F0A202" }} to={`/journey/${journeyInfo._id}`} onClick={this.handlePreviewClick}>Preview Journey</Link>
         <button style={{ backgroundColor: "#F0A202" }} className="btn" onClick={this.handleDeleteClick} type="submit">Delete Journey</button>
       </div>
     )
