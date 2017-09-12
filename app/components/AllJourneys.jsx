@@ -39,7 +39,7 @@ var AllJourneys = React.createClass({
               <Link to={`/journey/${journey._id}`}>
                 <div className="card" style={{ backgroundColor: "#202030", borderRadius: "10px"}}>
                   <div className="card-image">
-                    <img src={`https://powerful-cliffs-81990.herokuapp.com/files/journey/${journey._id}`} style={{borderRadius: "10px"}}/>
+                    <img src={`https://powerful-cliffs-81990.herokuapp.com/files/journey/${journey._id}`} style={{borderRadius: "10px", height: "300px"}}/>
                   </div>
                   <div className="card-content white-text">
                     <h5 className="card-title"> {journey.destination}  </h5>
