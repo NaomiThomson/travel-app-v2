@@ -28,7 +28,7 @@ ReactDOM.render(
   <Provider store={store}>
     <Router history={hashHistory}>
       <Route path="/" component={Main}>
-        <IndexRoute component={AllJourneys}/>
+        <IndexRoute component={Landing}/>
         <Route path="/alljourneys" component={AllJourneys}/>
         <Route path="/login" component={Login}/>
         <Route path="/signup" component={Signup} />

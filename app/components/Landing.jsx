@@ -12,7 +12,6 @@ var Landing = React.createClass({
         <h3>Welcome to MyTinerary</h3>
         <h5>Browse journeys of travel enthusiasts from around the world</h5>
         <h5>Add your own journey to share with friends and family</h5> <br /> <br />
-        {/*<img src="./images/landing.jpg" style={{width: "100%"}}/>*/}
       </div>
       
     );
