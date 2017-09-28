@@ -2,6 +2,7 @@
 A fullstack application that allows users to upload their trip details and share it with friends, family, and the whole world! The application features Google Maps with dynamically rendered markers to show the user's destinations throughout the trip. The user is able to upload his/her favorite photo that will display in the gallery of all users' trips. The user also has a dashboard to view all their trips and edit any one of them. Most importantly, the application provides a secure login system. 
 
 
+
 ## Technologies used
 [Node.js](https://nodejs.org/en/) |
 [React](https://facebook.github.io/react/) |
@@ -10,17 +11,19 @@ A fullstack application that allows users to upload their trip details and share
 [MongoDB](https://www.mongodb.com/) 
 
 
+
 ## Usage
 
 ![](https://i.imgur.com/8xvC8kXl.png)
 ![](https://i.imgur.com/3AS0T5Zl.png)
 ![](https://i.imgur.com/dyQWTGAl.png)
 ![](https://i.imgur.com/I87Qgtml.png)
+![](https://i.imgur.com/LBdtpDLl.png)
 ![](https://i.imgur.com/wcQvB06l.png)
 ![](https://i.imgur.com/rTAWAn6l.png)
 ![](https://i.imgur.com/YxwseGPl.png)
 ![](https://i.imgur.com/5PUcDB7l.png)
-![](https://i.imgur.com/LBdtpDLl.png)
+
 
 
 ## Installation
