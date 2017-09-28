@@ -1,5 +1,6 @@
 # [React/Redux Travel Itinerary App](http://agile-mesa-83405.herokuapp.com/)
 A fullstack application that allows users to upload their trip details and share it with friends, family, and the whole world! The application features Google Maps with dynamically rendered markers to show the user's destinations throughout the trip. The user is able to upload his/her favorite photo that will display in the gallery of all users' trips. The user also has a dashboard to view all their trips and edit any one of them. Most importantly, the application provides a secure login system. 
+##### Note: This is my first MERN stack project so some React code may not follow best practices. For examples of more polished code, please see [my newest app](https://github.com/NaomiThomson/indecision-app). 
 
 
 
