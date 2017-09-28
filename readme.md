@@ -14,7 +14,7 @@ A fullstack application that allows users to upload their trip details and share
 
 ## Usage
 
-![](https://i.imgur.com/afse4rvh.png?1)
+![](https://i.imgur.com/8xvC8kXh.png)
 ![](https://i.imgur.com/3AS0T5Zl.png)
 ![](https://i.imgur.com/dyQWTGAl.png)
 ![](https://i.imgur.com/I87Qgtml.png)
