@@ -4,12 +4,16 @@ A fullstack application that allows users to upload their trip details and share
 
 
 
+
+
 ## Technologies used
 [Node.js](https://nodejs.org/en/) |
 [React](https://facebook.github.io/react/) |
 [Redux](http://redux.js.org/) |
 [Webpack](https://webpack.js.org/) | 
 [MongoDB](https://www.mongodb.com/) 
+
+
 
 
 
@@ -38,6 +42,8 @@ A fullstack application that allows users to upload their trip details and share
 
 ### Your finalized itinerary page is ready to be shared!
 ![](https://i.imgur.com/5PUcDB7h.png)
+
+
 
 
 
