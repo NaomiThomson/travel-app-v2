@@ -15,14 +15,14 @@ A fullstack application that allows users to upload their trip details and share
 ## Usage
 
 ![](https://i.imgur.com/8xvC8kXh.png)
-![](https://i.imgur.com/3AS0T5Zl.png)
-![](https://i.imgur.com/dyQWTGAl.png)
-![](https://i.imgur.com/I87Qgtml.png)
-![](https://i.imgur.com/LBdtpDLl.png)
-![](https://i.imgur.com/wcQvB06l.png)
-![](https://i.imgur.com/rTAWAn6l.png)
-![](https://i.imgur.com/YxwseGPl.png)
-![](https://i.imgur.com/5PUcDB7l.png)
+![](https://i.imgur.com/3AS0T5Zh.png)
+![](https://i.imgur.com/dyQWTGAh.png)
+![](https://i.imgur.com/I87Qgtmh.png)
+![](https://i.imgur.com/LBdtpDLh.png)
+![](https://i.imgur.com/wcQvB06h.png)
+![](https://i.imgur.com/rTAWAn6h.png)
+![](https://i.imgur.com/YxwseGPh.png)
+![](https://i.imgur.com/5PUcDB7h.png)
 
 
 
