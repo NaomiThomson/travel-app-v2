@@ -14,14 +14,28 @@ A fullstack application that allows users to upload their trip details and share
 
 ## Usage
 
+### View all users' journeys and get inspiration
 ![](https://i.imgur.com/8xvC8kXh.png)
+
+### Login
 ![](https://i.imgur.com/3AS0T5Zh.png)
+
+### Create your own journey
 ![](https://i.imgur.com/dyQWTGAh.png)
+
+### You are automatically rerouted to your new journey page
 ![](https://i.imgur.com/I87Qgtmh.png)
+
+### View all journeys on your dashboard 
 ![](https://i.imgur.com/LBdtpDLh.png)
+
+### Edit a journey and upload a cover photo
 ![](https://i.imgur.com/wcQvB06h.png)
-![](https://i.imgur.com/rTAWAn6h.png)
+
+### Add things to your itinerary
 ![](https://i.imgur.com/YxwseGPh.png)
+
+### Your finalized itinerary page is ready to be shared!
 ![](https://i.imgur.com/5PUcDB7h.png)
 
 
