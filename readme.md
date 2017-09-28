@@ -16,11 +16,11 @@ A fullstack application that allows users to upload their trip details and share
 ![](https://i.imgur.com/3AS0T5Zl.png)
 ![](https://i.imgur.com/dyQWTGAl.png)
 ![](https://i.imgur.com/I87Qgtml.png)
+![](https://i.imgur.com/wcQvB06l.png)
 ![](https://i.imgur.com/rTAWAn6l.png)
 ![](https://i.imgur.com/YxwseGPl.png)
 ![](https://i.imgur.com/5PUcDB7l.png)
 ![](https://i.imgur.com/LBdtpDLl.png)
-![](https://i.imgur.com/wcQvB06l.png)
 
 
 ## Installation
